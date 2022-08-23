@@ -97,7 +97,6 @@
 	<li>${product.productCode}</li>
 	</ul>
 	</c:forEach>
-	<!-- 이거 추가되나 -->
 	</div>
 <div>
 
