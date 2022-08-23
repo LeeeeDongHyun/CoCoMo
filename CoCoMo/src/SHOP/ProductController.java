@@ -45,9 +45,13 @@ public ProductController() {
 		} else if (cmd.equals("detail")) {
 			int prodNo = Integer.parseInt(request.getParameter("prodNo"));
 			// 상품 정보 받아오기 시작
-			DetailProdRespDto prodDto = productService.findB(prodNo);
+			DetailProdRespDto prodDto = productService.상품상세보기(prodNo);
 			request.setAttribute("prodDto", prodDto);
 			// 상품 정보 받아오기 끝
+			dis = request.getRequestDispatcher("/Payment.jsp");
+			dis.forward(request, response);
+
 }
+
 	}
 }

@@ -71,9 +71,9 @@ public class ShopSystemInitialization {
                 "price long not null, " +
                 "primary key(productCode) " +
                 " );",
-                " insert into Shop.Product values(1, 100, '0.jpg', 'asd', 100); ",
-                " insert into Shop.Product values(null, 105, '1.jpg', 'zz', 50); ",
-                " insert into Shop.Product values(null, 95, '2.jpg', 'zz', 1000); ",
+                " insert into Shop.Product values(1, 100, '0.jpg', 'Èò»ö Æ¼', 100); ",
+                " insert into Shop.Product values(null, 105, '1.jpg', 'Áö°©1', 50); ",
+                " insert into Shop.Product values(null, 95, '2.jpg', 'Áö°©2', 1000); ",
                 
                     /***********************************************
                     TABLE NAME   : shop.Product

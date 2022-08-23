@@ -25,8 +25,8 @@ private ProductDao productDao;
 	//	return productDao.insert(dto);
 	//}
 	
-	public DetailProdRespDto findB(int prodNo) {
-		return productDao.findById(prodNo);
+	public DetailProdRespDto 상품상세보기(int prodNo) {
+		return productDao.findByCode(prodNo);
 	}
 	
 //	public List<IndexDto> 상품키워드찾기(String keyword) {
