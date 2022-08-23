@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shop</title>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/Main.css">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+        $(".sub").css({display:"none"});
+        $(".main > li").click(function(){
+            $(".sub").each(function(){
+                if($(this).css("display") == "block") {
+                    $(this).css({display:"none"});
+                }
+            });
+            $(this).find(".sub").fadeIn(500);
+        });
+    });
+  </script>
+</head>
+<body>
+   
+
+    <div class="navbar">
+        <a href="Main.html" id="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrnRG3tc4YnOFvP3cQBWISSK8QItfkhEgRFA&usqp=CAU" height="60">
+        </a>
+
+        <ul id="menu">
+            <li><a href="login.html"><b>Login</b></a></li>
+            <li><a href="login.html"><b>MyPage</b></a></li>
+            <li><a href="login.html"><b>Cart</b></a></li>
+            <li><div class="search-box"><input type=  "text" class="search-txt"name=""placeholder="search">
+      <a class="search-btn" href="#">
+        <i class="fas fa-search"></i>
+      </a>
+    </div></li>
+
+
+            
+        </ul>
+    </div>
+
+     <div class="hero-header"></div>
+
+    <div class="products">
+        <h3>문구 지정하기</h3>
+   <div id = "nav">
+    <ul class="main">
+<li><a href="#">인기 상품</a>
+       <ul class="sub">
+    
+       <li><a href="#">상의</a></li>
+       <li><a href="#">하의</a></li>
+       <li><a href="#">모자</a></li>
+       <li><a href="#">신발</a></li>
+    </ul>
+</li>
+<li><a href="#">상의</a>
+       <ul class="sub">
+       <li><a href="#">티셔츠</a></li>
+       <li><a href="#">가디건</a></li>
+       <li><a href="#">셔츠</a></li>
+       <li><a href="#">가디건</a></li>
+    </ul>
+</li>
+<li><a href="#">하의</a>
+       <ul class="sub">
+       <li><a href="#">긴바지</a></li>
+       <li><a href="#">반바지</a></li>
+       <li><a href="#">츄리닝</a></li>
+    </ul>
+</li>
+<li><a href="#">모자 와 신발</a>
+       <ul class="sub">
+       <li><a href="#">모자</a></li>
+       <li><a href="#">구두</a></li>
+       <li><a href="#">운동화</a></li>
+       <li><a href="#">단화</a></li>
+    </ul>
+</li>
+</ul>
+</div>
+
+        <div class="product-list">            
+            <a href="#" class="product">
+                <img src="https://www.smallman.co.kr/web/product/big/202207/fecc6a4beba0599794810b2339c5ff60.jpg" width="225" height="225px">
+                <div class="product-name">
+                    버블 무지 링클프리 반팔
+                </div>
+                <div class="product-price">
+                   7,900원 
+                </div>
+            </a>
+
+            
+            <a href="#" class="product">
+                <img src="https://bakey-api.codeit.kr/files/629/images/sunglasses.jpg" width="225" height="225px">
+                <div class="product-name">
+                    Sunglasses
+                </div>
+                <div class="product-price">
+                    49,000
+                </div>
+            </a>
+
+            
+            <a href="#" class="product">
+                <img src="https://bakey-api.codeit.kr/files/629/images/sunglasses.jpg" width="225" height="225px">
+                <div class="product-name">
+                    Sunglasses
+                </div>
+                <div class="product-price">
+                    49,000
+                </div>
+            </a>
+
+            
+            <a href="#" class="product">
+                <img src="https://bakey-api.codeit.kr/files/629/images/sunglasses.jpg" width="225" height="225px">
+                <div class="product-name">
+                    Sunglasses
+                </div>
+                <div class="product-price">
+                    49,000
+                </div>
+            </a>
+
+            
+            <a href="#" class="product">
+                <img src="https://bakey-api.codeit.kr/files/629/images/sunglasses.jpg" width="225" height="225px">
+                <div class="product-name">
+                    Sunglasses
+                </div>
+                <div class="product-price">
+                    49,000
+                </div>
+            </a>
+
+            <a href="#" class="product">
+                <img src="https://bakey-api.codeit.kr/files/629/images/sunglasses.jpg" width="225" height="225px">
+                <div class="product-name">
+                    Sunglasses
+                </div>
+                <div class="product-price">
+                    49,000
+                </div>
+            </a>
+            
+            <a href="#" class="product">
+                <img src="https://bakey-api.codeit.kr/files/629/images/sunglasses.jpg" width="225" height="225px">
+                <div class="product-name">
+                    Sunglasses
+                </div>
+                <div class="product-price">
+                    49,000
+                </div>
+            </a>
+            
+            <a href="#" class="product">
+                <img src="https://bakey-api.codeit.kr/files/629/images/sunglasses.jpg" width="225" height="225px">
+                <div class="product-name">
+                    Sunglasses
+                </div>
+                <div class="product-price">
+                    49,000
+                </div>          
+            </a>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="footer">
+            <a href="http://faceboo.com">
+                <img src="https://bakey-api.codeit.kr/files/629/images/facebook.png" height="20">
+            </a>
+            <a href="http://faceboo.com">
+                <img src="https://bakey-api.codeit.kr/files/629/images/instagram.png" height="20">
+            </a>
+            <a href="http://faceboo.com">
+                <img src="https://bakey-api.codeit.kr/files/629/images/twitter.png" height="20">
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>관리자 회원관리</title>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./css/Member management.css">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+        $(".sub").css({display:"none"});
+        $(".main > li").click(function(){
+            $(".sub").each(function(){
+                if($(this).css("display") == "block") {
+                    $(this).css({display:"none"});
+                }
+            });
+            $(this).find(".sub").fadeIn(500);
+        });
+    });
+
+    $(document).ready(function (){
+        $("#client_popup").hide();
+        $(".open_btn").click(function(){
+            $("#client_popup").show();
+        })
+        $(".close_btn").click(function (){
+            $("#client_popup").hide();
+        })
+    });
+  </script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="manager.html" id="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrnRG3tc4YnOFvP3cQBWISSK8QItfkhEgRFA&usqp=CAU" height="60">
+        </a>
+
+        <ul id="menu">
+            <li><a href="#"><b>회원정보관리</b></a></li>
+            <li><a href="Product management.html"><b>상품 관리</b></a></li>
+        </ul>
+    </div>
+
+    <table class="client_info">
+        <caption class="client_caption">
+            회원정보
+        </caption>
+        <tr class="table_head">
+            <th id="client_name">
+                이름
+            </th>
+            <th id="client_id">
+                아이디
+            </th>
+            <th id="client_status">
+                현재상태
+            </th>
+            <th id="client_membership_date">
+                가입일
+            </th>
+            <th id="client_orders">
+                주문횟수
+            </th>
+            <th id="client_mileage">
+                마일리지
+            </th>
+            <th id="client_grade">
+                회원등급
+            </th>
+        </tr>
+        <tr>
+            <td><a class="open_btn">춘보미</a></td><td>dummy_id</td><td>dummy_status</td><td>dummy_date</td><td>dummy_order</td><td>dummy_mileage</td><td>dummy_grade</td>
+        </tr>
+        <tr>
+            <td><a class="open_btn">춘보미</a></td><td>dummy_id</td><td>dummy_status</td><td>dummy_date</td><td>dummy_order</td><td>dummy_mileage</td><td>dummy_grade</td>
+        </tr>
+        <tr>
+            <td><a class="open_btn">춘보미</a></td><td>dummy_id</td><td>dummy_status</td><td>dummy_date</td><td>dummy_order</td><td>dummy_mileage</td><td>dummy_grade</td>
+        </tr>
+        <tr>
+            <td><a class="open_btn">춘보미</a></td><td>dummy_id</td><td>dummy_status</td><td>dummy_date</td><td>dummy_order</td><td>dummy_mileage</td><td>dummy_grade</td>
+        </tr>
+        <tr>
+            <td><a class="open_btn">춘보미</a></td><td>dummy_id</td><td>dummy_status</td><td>dummy_date</td><td>dummy_order</td><td>dummy_mileage</td><td>dummy_grade</td>
+        </tr>
+        <tr>
+            <td><a class="open_btn">춘보미</a></td><td>dummy_id</td><td>dummy_status</td><td>dummy_date</td><td>dummy_order</td><td>dummy_mileage</td><td>dummy_grade</td>
+        </tr>
+        <tr>
+            <td><a class="open_btn">춘보미</a></td><td>dummy_id</td><td>dummy_status</td><td>dummy_date</td><td>dummy_order</td><td>dummy_mileage</td><td>dummy_grade</td>
+        </tr>
+    </table>
+
+    <div>
+        <h1>READ ME!</h1>
+        <p>
+            팝업창은 div테그를 만들어서 제이쿼리를 숨겼다가 사용자 이름을 누르면 열리게 만들어놨읍니다.
+            나중에라도 수정하려면 "open_btn" 클래스 이름을 다른 곳에다가 지정하면 됩니당
+            컬러 같은건 css파일에 적용되어있으니까 입맛에 맞춰서 설정하시면 댑니다
+            그리고 팝업창 안에 있는 input 태그는 나중에라도 백엔드가 알아서 설정할거니까 응애 프론트는 그런거 몰루?
+            백앤드가 할 일은 쿼리문으로 회원 정보같은거 받아오고 팝업창에 ( )이걸로 감싸놓은 부분 DB에서 받아와서
+            고객 이름마다 팝업창 이름이 바뀌게 설정하시면 될것같습니다.
+            프로젝트 화이팅!
+        </p>
+    </div>
+    
+    <div id="client_popup">
+        <h4>(여기다가 백엔드가 이름 넣는 코드 만들거임)님의 회원정보</h4>
+        <table id="popup_table">
+            <tbody>
+            <tr>
+                <th>이름</th><td><input/></td>
+            </tr>
+            <tr>
+                <th>아이디</th><td><input/></td>
+            </tr>
+            <tr>
+                <th>dummy_data</th><td><input/></td>
+            </tr>
+            <tr>
+                <th>dummy_data</th><td><input/></td>
+            </tr>
+            <tr>
+                <th>dummy_data</th><td><input/></td>
+            </tr>
+            </tbody>
+        </table>
+        <button>수정</button><button class="close_btn">닫기</button>
+    </div>
+
+
+</body>
+</html>

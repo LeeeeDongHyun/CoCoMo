@@ -1,0 +1,167 @@
+  .navbar{
+       height: 60px;
+       padding-left: 30px;
+       padding-right: 30px;
+   
+   }
+.hero-header{
+   height: 450px;
+    background-image: url("https://smallman.co.kr/web/upload/appfiles/0zdpAngaKBFnlCcCqpCU4A/dfd4be59ac2050f9903daecaf9b37653.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    }
+   
+   .navbar #logo{
+       line-height: 60px;
+   }
+   
+   .navbar img{
+       vertical-align: top;
+       border: blanchedalmond 5px ;
+   }
+   
+   .navbar #menu{
+       float: right;
+       list-style-type: none;
+       padding: 0;
+       margin: 0;
+       
+   }
+ /*  #nav{
+      margin: 60px;
+      margin-bottom: 140px;
+      width: 1000px;
+      height: 60px;
+      border: none;
+      padding: 10px;
+      text-align: center;
+    
+   
+      font-size:v12pt;
+   }
+   */
+   #nav ul{
+   list-style:none;
+    text-align: center
+   }
+   #nav>ul>li {
+     
+    
+      width: 200px;
+      height: 30px;
+      box-sizing: border-box;
+      display:inline-block;
+      
+      font-size: 20pt;
+      font-weight: 600;
+   
+      }
+       #nav>ul>li>ul>li {
+      float: left;
+    
+      width: 200px;
+      height: 30px;
+      box-sizing: border-box;
+      position: relative; top:10px; left: -40px;
+      list-style: none;
+      font-size: 15pt;
+      font-weight: 400;
+   
+      }
+   
+   #nav li:last-child {
+      border-right :0;
+   }
+   #nav>ul>li>a {
+      display: block;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      text-decoration: none;
+      color: inherit;
+   }
+   
+    #nav>ul>li>ul>li>a {
+      display: block;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      text-decoration: none;
+      color: inherit;
+   }
+   
+   #nav.sub{
+      background-color: azure;
+      width: 100%;
+      position:absolute;
+      left: 0;
+      top: 31px;
+   }
+   
+   #nav.sub li{
+      height: 30px;
+      border-bottom: 1px solid #ccc;
+   }
+   #nav .sub li a{
+      display: block;
+      text-align: center;
+      line-height: 30px
+   }
+   .navbar #menu li{
+       float: left;
+       margin-left: 50px;
+       line-height: 60px;
+   }
+   
+   .navbar #menu li a{
+       color: #545454;
+       font-size: 13px;
+       text-decoration: none;
+   }
+   .product-list{
+       width: 735px;
+       margin-left: auto;
+       margin-right: auto;
+   }
+   .products h3{
+       font-size: 24px;
+       color: #545454;
+       margin-top:60px;
+       margin-bottom: 60px;
+       text-align: center;
+   }
+   
+   .product{
+       display: block;
+       width: 225px;
+       text-align: center;
+       text-decoration:none;
+       color: black;
+       float:left;
+       margin-left: 10px;
+       margin-right: 10px;
+       margin-bottom: 30px;
+   }
+   
+   .product-name{
+       margin-top: 20px;
+       margin-bottom: 4px;
+   }
+   
+   .clearfix{
+       clear: both;
+   }
+   .footer{
+       text-align: center;
+       margin-top: 40px;
+       margin-bottom: 40px;
+   }
+   
+   .footer a{
+       margin-left: 10px;
+       margin-right: 10px;
+       text-decoration:none;
+   }
+   
+   

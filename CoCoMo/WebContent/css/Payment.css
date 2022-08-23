@@ -1,0 +1,63 @@
+  .navbar{
+       height: 60px;
+       padding-left: 30px;
+       padding-right: 30px;
+   
+   }
+   .navbar #logo{
+       line-height: 60px;
+   }
+   
+   .navbar img{
+       vertical-align: top;
+       border: blanchedalmond 5px ;
+   }
+   
+   .navbar #menu{
+       float: right;
+       list-style-type: none;
+       padding: 0;
+       margin: 0;
+       
+   }
+
+
+   .navbar #menu li{
+       float: left;
+       margin-left: 50px;
+       line-height: 60px;
+   }
+   
+   .navbar #menu li a{
+       color: #545454;
+       font-size: 13px;
+       text-decoration: none;
+   }
+   .cart__mainbtns {
+width: 420px;
+height: 200px;
+padding-top: 40px;
+display: block;
+margin: auto;
+}
+.cart__bigorderbtn {
+width: 200px;
+height: 50px;
+font-size: 16px;
+margin: auto;
+border-radius: 5px;
+}
+
+.cart__bigorderbtn.left {
+background-color: white;
+border: 1px lightgray solid;
+}
+   .cart__bigorderbtn.middle {
+background-color: white;
+border: 1px lightgray solid;
+}
+   .cart__bigorderbtn.right {
+background-color: Black;
+color: white;
+border: none;
+}
