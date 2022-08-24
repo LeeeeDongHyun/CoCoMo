@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, SHOP.*, java.util.*" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
     <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
+<%@include file="header.jsp" %>
 
 <jsp:useBean id="productDAO" class="SHOP.SHOPDB" scope="session"/>
 <html>

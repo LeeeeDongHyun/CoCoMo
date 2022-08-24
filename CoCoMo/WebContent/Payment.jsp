@@ -120,7 +120,17 @@
 					<span class="products-box-detail-allPrice-title">상품 금액</span>
 				<span class="products-box-detail-allPrice-figure">
 					<fmt:formatNumber value="${prodDto.price}" type="number" />
-				</span></div>
+				</span>
+				</div>
+				<!-- 버튼 시작 -->
+			<c:choose>
+				<c:when test="${sessionScope.principal != null}">
+					<button type="button" class="buy-btn" onclick="location.href='<%=request.getContextPath()%>/user?cmd=directBuy&prodId=${prodDto.prodId}&userId=${sessionScope.principal.id}';">바로 구매</button>
+				</c:when>
+				<c:otherwise>
+					<button type="button" class="buy-btn" onclick="needLogin();">바로 구매</button>
+				</c:otherwise>
+				</c:choose>
 					</div>
 									
 					
