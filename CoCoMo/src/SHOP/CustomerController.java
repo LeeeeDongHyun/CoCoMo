@@ -38,20 +38,20 @@ public class CustomerController extends HttpServlet {
 		System.out.println(request.getRequestURI());
 
 	if (cmd.equals("directBuy")) {
-		String id = request.getParameter("id"));
+		String id = request.getParameter("id");
 		CheckoutRespDto userInfo = customerService.구매회원정보(id);
 		request.setAttribute("userInfo", userInfo);
 		
 		int productCode = Integer.parseInt(request.getParameter("productCode"));
 		ProductService productService = new ProductService();
-		CheckoutProductDto prodInfo = productService.구매상품정보(productCode);
+		CheckoutProductDto prodInfo  = productService.구매상품정보(productCode);
 		request.setAttribute("prodInfo", prodInfo);
 		
-		dis = request.getRequestDispatcher("/user/check-out.jsp");
+		dis = request.getRequestDispatcher("/Cart.jsp");
 		dis.forward(request, response);
 		
 	} else if (cmd.equals("cartBuy")) {
-		int id = Integer.parseInt(request.getParameter("id"));
+		String id = request.getParameter("id");
 		CheckoutRespDto userInfo = customerService.구매회원정보(id);
 		request.setAttribute("userInfo", userInfo);
 		
@@ -60,12 +60,11 @@ public class CustomerController extends HttpServlet {
 		List<CheckoutProductDto> prodList = productService.구매상품정보(cartList);
 		request.setAttribute("prodList", prodList);
 
-		dis = request.getRequestDispatcher("/user/check-out.jsp");
+		dis = request.getRequestDispatcher("/Cart.jsp");
 		dis.forward(request, response);
 
 	}
 	
 }
 
-}
 }

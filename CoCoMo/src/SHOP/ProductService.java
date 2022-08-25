@@ -4,6 +4,7 @@ import java.util.List;
 
 import SHOP.IndexDto;
 import SHOP.ProductDao;
+import SHOP.CheckoutProductDto;
 import SHOP.DetailProdRespDto;
 
 public class ProductService {
@@ -45,13 +46,13 @@ private ProductDao productDao;
 //		return productDao.findAllSortBySoldCount();
 //	}
 	
-//	public CheckoutProdDto 구매상품정보(int id) {
-//	return productDao.findForBuy(id);
-//	}
+	public CheckoutProductDto 구매상품정보(int productCode) {
+	return productDao.findForBuy(productCode);
+	}
 	
-//	public List<CheckoutProdDto> 구매상품정보(List<Integer> cartList) {
-//		return productDao.findForBuy(cartList);
-//	}
+	public List<CheckoutProductDto> 구매상품정보(List<Integer> cartList) {
+		return productDao.findForBuy(cartList);
+	}
 	
 //	public void 구매수증가(int prodId) {
 //		productDao.updateSoldCount(prodId);

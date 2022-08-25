@@ -104,4 +104,60 @@ public class ProductDao {
 		}
 		return null;
 	}
+	
+	public List<CheckoutProductDto> findForBuy(List<Integer> cartList) {
+		Connection con = SHOPDB.getConnection();
+		PreparedStatement prStmt = null;
+		ResultSet rs = null;
+		List<CheckoutProductDto> result = new ArrayList<>();
+		
+		try {
+			for (int productCode : cartList) {
+				String sql = "SELECT p.id, p.productName, c.name, p.price, p.imgUrl_1 FROM product p INNER JOIN company c ON p.companyId = c.id WHERE p.id = ?";
+				prStmt = con.prepareStatement(sql);
+				prStmt.setInt(1, productCode);
+				rs = prStmt.executeQuery();
+				if (rs.next()) {
+					CheckoutProductDto dto = new CheckoutProductDto();
+							dto.setId(rs.getString("p.id"));
+							dto.setProductName(rs.getString("p.productName"));
+							dto.setPrice(rs.getLong("p.price"));
+							dto.setImgUrl_1(rs.getString("p.imgUrl_1"));
+					result.add(dto);
+				}
+			}
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			SHOPDB.close(con, prStmt, rs);
+		}
+		return null;
+	}
+	
+	public CheckoutProductDto findForBuy(int productCode) {
+		Connection con = SHOPDB.getConnection();
+		PreparedStatement prStmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT p.id, p.productName, c.name, p.price, p.imgUrl_1 FROM product p  WHERE p.id = ?";
+		
+		try {
+			prStmt = con.prepareStatement(sql);
+			prStmt.setInt(1, productCode);
+			rs = prStmt.executeQuery();
+			if (rs.next()) {
+				CheckoutProductDto dto = new CheckoutProductDto();
+						dto.setId(rs.getString("p.id"));
+						dto.setProductName(rs.getString("p.productName"));
+						dto.setPrice(rs.getLong("p.price"));
+						dto.setImgUrl_1(rs.getString("p.imgUrl_1"));
+						return dto;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			SHOPDB.close(con, prStmt, rs);
+		}
+		return null;
+	}
 }

@@ -9,7 +9,7 @@ import java.util.List;
 import SHOP.SHOPDB;
 
 public class CustomerDao {
-	public List<Integer> findForCartList(int id) {
+	public List<Integer> findForCartList(String id) {
 		Connection con = SHOPDB.getConnection();
 		PreparedStatement prStmt = null;
 		ResultSet rs = null;
@@ -18,7 +18,7 @@ public class CustomerDao {
 		
 		try {
 			prStmt = con.prepareStatement(sql);
-			prStmt.setInt(1, id);
+			prStmt.setString(1, id);
 			rs = prStmt.executeQuery();
 			while (rs.next()) {
 				int productCode = rs.getInt("productCode");
@@ -33,7 +33,7 @@ public class CustomerDao {
 		return null;
 	}
 	
-	public CheckoutRespDto findById(int id) {
+	public CheckoutRespDto findById(String id) {
 		Connection con = SHOPDB.getConnection();
 		PreparedStatement prStmt = null;
 		ResultSet rs = null;
@@ -41,7 +41,7 @@ public class CustomerDao {
 		
 		try {
 			prStmt = con.prepareStatement(sql);
-			prStmt.setInt(1, id);
+			prStmt.setString(1, id);
 			rs = prStmt.executeQuery();
 			if (rs.next()) {
 				CheckoutRespDto corDto = new CheckoutRespDto();

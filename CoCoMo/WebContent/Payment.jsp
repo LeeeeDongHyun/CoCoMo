@@ -125,7 +125,7 @@
 			<!-- 버튼 시작 -->
 			<c:choose>
 				<c:when test="${sessionScope.principal != null}">
-					<button type="button" class="buy-btn" onclick="location.href='<%=request.getContextPath()%>/user?cmd=directBuy&prodId=${prodDto.prodId}&userId=${sessionScope.principal.id}';">바로 구매</button>
+					<button type="button" class="buy-btn" onclick="location.href='<%=request.getContextPath()%>/user?cmd=directBuy&productCode=${prodDto.productCode}&id=${sessionScope.principal.id}';">바로 구매</button>
 				</c:when>
 				<c:otherwise>
 					<button type="button" class="buy-btn" onclick="needLogin();">바로 구매</button>
@@ -136,12 +136,12 @@
 			<c:when test="${sessionScope.principal != null}">
 				<c:choose>
 					<c:when test="${isCart eq true }">
-						<button type="button" class="cart-btn" onclick="rmvCart(${sessionScope.principal.id}, ${prodDto.prodId});">
+						<button type="button" class="cart-btn" onclick="rmvCart(${sessionScope.principal.id}, ${prodDto.productCode});">
 							<i class="material-icons" style="color: red;">shopping_cart</i>
 						</button>
 					</c:when>
 					<c:otherwise>
-						<button type="button" class="cart-btn" onclick="addCart(${sessionScope.principal.id}, ${prodDto.prodId});">
+						<button type="button" class="cart-btn" onclick="addCart(${sessionScope.principal.id}, ${prodDto.productCode});">
 							<i class="material-icons">shopping_cart</i>
 						</button>
 					</c:otherwise>

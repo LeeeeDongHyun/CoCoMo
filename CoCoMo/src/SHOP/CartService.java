@@ -24,8 +24,8 @@ private CartDao cartDao;
 		return cartDao.rmvCart(cartDto);
 	}
 	
-	public List<CartAllDto> callC(String userId) {
-		return cartDao.findByUserId(userId);
+	public List<CartAllDto> callC(String id) {
+		return cartDao.findByUserId(id);
 
 }
 }
