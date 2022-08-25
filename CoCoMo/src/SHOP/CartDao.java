@@ -68,7 +68,7 @@ public class CartDao {
 		return null;
 	}
 	
-	public boolean isCart(int userId, int prodNo) {
+	public boolean isCart(String id, int productCode) {
 		Connection con = SHOPDB.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -76,8 +76,8 @@ public class CartDao {
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, userId);
-			pstmt.setInt(2, prodNo);
+			pstmt.setString(1, id);
+			pstmt.setInt(2, productCode);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return true;
@@ -93,15 +93,17 @@ public class CartDao {
 	public int addCart(CartDto cartDto) {
 		Connection con = SHOPDB.getConnection();
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO cart(ID, productCode) VALUES (?, ?)";
+		String sql = "INSERT INTO cart(id, productCode) VALUES (?, ?)";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, cartDto.getUserId());
-			pstmt.setInt(2, cartDto.getProdId());
+			pstmt.setString(1, cartDto.getId());
+			pstmt.setInt(2, cartDto.getProductCode());
 			return pstmt.executeUpdate();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("XXXXXXX");
 		} finally {
 			SHOPDB.close(con, pstmt);
 		}
@@ -109,19 +111,19 @@ public class CartDao {
 	}
 	
 	public int rmvCart(CartDto cartDto) {
-		Connection conn = SHOPDB.getConnection();
-		PreparedStatement pstmt = null;
+		Connection con = SHOPDB.getConnection();
+		PreparedStatement prStmt = null;
 		String sql = "DELETE FROM cart WHERE ID = ? AND productCode = ?";
 		
 		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, cartDto.getUserId());
-			pstmt.setInt(2, cartDto.getProdId());
-			return pstmt.executeUpdate();
+			prStmt = con.prepareStatement(sql);
+			prStmt.setString(1, cartDto.getId());
+			prStmt.setInt(2, cartDto.getProductCode());
+			return prStmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			SHOPDB.close(conn, pstmt);
+			SHOPDB.close(con, prStmt);
 		}
 		return -1;
 	}

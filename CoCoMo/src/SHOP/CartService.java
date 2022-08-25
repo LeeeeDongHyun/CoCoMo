@@ -12,8 +12,8 @@ private CartDao cartDao;
 		this.cartDao = new CartDao();
 	}
 	
-	public boolean isC(int userId, int prodNo) {
-		return cartDao.isCart(userId, prodNo);
+	public boolean isC(String id, int productCode) {
+		return cartDao.isCart(id, productCode);
 	}
 	
 	public int addC(CartDto cartDto) {

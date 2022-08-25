@@ -82,12 +82,12 @@ public class ShopSystemInitialization {
                 
                 "drop table if exists shop.Cart; " ,
                 "create table Cart( " +
-                "CartNo int not null, " +
+               // "CartNo int not null, " +
                 "ID varchar(20) not null, " +
                 "productCode int not null, " +
-                "totalPrice int not null, " +
-                "EA int not null, " +
-                "primary key(CartNo), " +
+              //  "totalPrice int not null, " +
+               // "EA int not null, " +
+             //   "primary key(CartNo), " +
                 "FOREIGN KEY (ID) REFERENCES Customer(ID), " +
                 "FOREIGN KEY (productCode) REFERENCES Product(productCode) " +
                 " );",

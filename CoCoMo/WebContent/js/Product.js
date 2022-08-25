@@ -17,15 +17,15 @@ function addCartMessage() {
 	})
 }
 
-function addCart(userId, prodId) {
+function addCart(id, productCode) {
 	var dto = {
-		userId: userId,
-		prodId: prodId
+		id: id,
+		productCode: productCode
 	};
 
 	$.ajax({
 		type: "POST",
-		url: "/shop/cart?cmd=cartAdd",
+		url: "/CoCoMo/cart?cmd=cartAdd",
 		data: JSON.stringify(dto),
 		contentType: "application/json; charset=utf-8",
 		dataType: "text"
@@ -36,15 +36,15 @@ function addCart(userId, prodId) {
 	})
 };
 
-function rmvCart(userId, prodId) {
+function rmvCart(id, productCode) {
 	var dto = {
-		userId: userId,
-		prodId: prodId
+		id: id,
+		productCode: productCode
 	};
 
 	$.ajax({
 		type: "POST",
-		url: "/shop/cart?cmd=cartRmv",
+		url: "/CoCoMo/cart?cmd=cartRmv",
 		data: JSON.stringify(dto),
 		contentType: "application/json; charset=utf-8",
 		dataType: "text"
@@ -65,9 +65,9 @@ function needLogin() {
 		confirmButtonText: '회원가입',
 		cancelButtonText: '페이지 머물기',
 		reverseButtons: true
-	}).then((result) => {
-		if (result.isConfirmed) {
-			location.href='/shop/user?cmd=joinForm';
+	}).then((Customer) => {
+		if (Customer.isConfirmed) {
+			location.href='/CoCoMo/joinmembership.jsp';
 		} else {
 			swal.close();
 		}

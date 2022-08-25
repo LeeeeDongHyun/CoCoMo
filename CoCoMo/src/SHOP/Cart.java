@@ -1,16 +1,16 @@
 package SHOP;
 
 public class Cart {
-	int basketNo;
+//	int basketNo;
 	String id;
 	int productCode;
-	int EA;
-	public int getBasketNo() {
-		return basketNo;
-	}
-	public void setBasketNo(int basketNo) {
-		this.basketNo = basketNo;
-	}
+	//int EA;
+//	public int getBasketNo() {
+//		return basketNo;
+//	}
+//	public void setBasketNo(int basketNo) {
+//		this.basketNo = basketNo;
+//	}
 	public String getId() {
 		return id;
 	}
@@ -23,10 +23,10 @@ public class Cart {
 	public void setProductCode(int productCode) {
 		this.productCode = productCode;
 	}
-	public int getEA() {
-		return EA;
-	}
-	public void setEA(int eA) {
-		EA = eA;
-	}
+//	public int getEA() {
+//		return EA;
+//	}
+//	public void setEA(int eA) {
+//		EA = eA;
+//	}
 }

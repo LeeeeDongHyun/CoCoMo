@@ -87,7 +87,7 @@
 </div>
 	<div>
 	<c:forEach var="product" items="${productList30}">
-	<a  href="/CoCoMo/Product?cmd=detail&prodNo=${product.productCode}">
+	<a  href="/CoCoMo/Product?cmd=detail&productCode=${product.productCode}">
 	<img src="${product.imgUrl_1}"/></a>
 	<ul>
 	<li>${product.productName}</li>

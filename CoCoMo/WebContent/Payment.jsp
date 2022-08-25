@@ -6,7 +6,7 @@
 <%@include file="header.jsp" %>
 
 
-<jsp:useBean id="productDAO" class="SHOP.SHOPDB" scope="session"/>
+<jsp:useBean id="customerDAO" class="SHOP.SHOPDB" scope="session"/>
 
   <head>
     <meta charset="utf-8" />
@@ -123,25 +123,25 @@
 				</span>
 				</div>
 			<!-- 버튼 시작 -->
-			<c:choose>
-				<c:when test="${sessionScope.principal != null}">
-					<button type="button" class="buy-btn" onclick="location.href='<%=request.getContextPath()%>/user?cmd=directBuy&productCode=${prodDto.productCode}&id=${sessionScope.principal.id}';">바로 구매</button>
+				<c:choose>
+				<c:when test="${sessionScope.customer ne null}">
+					<button type="button" class="buy-btn" onclick="location.href='<%=request.getContextPath()%>/cart?cmd=directBuy&productCode=${prodDto.productCode}&id=${Customer.id}';">바로 구매</button>
 				</c:when>
 				<c:otherwise>
 					<button type="button" class="buy-btn" onclick="needLogin();">바로 구매</button>
 				</c:otherwise>
-			</c:choose>
+				</c:choose>
 			<!-- 장바구니 버튼 시작 -->
 			<c:choose>
-			<c:when test="${sessionScope.principal != null}">
+			<c:when test="${sessionScope.customer ne null}">
 				<c:choose>
 					<c:when test="${isCart eq true }">
-						<button type="button" class="cart-btn" onclick="rmvCart(${sessionScope.principal.id}, ${prodDto.productCode});">
+						<button type="button" class="cart-btn" onclick="rmvCart(${customer.id}, ${prodDto.productCode});">
 							<i class="material-icons" style="color: red;">shopping_cart</i>
 						</button>
 					</c:when>
 					<c:otherwise>
-						<button type="button" class="cart-btn" onclick="addCart(${sessionScope.principal.id}, ${prodDto.productCode});">
+						<button type="button" class="cart-btn" onclick="addCart(${customer.id}, ${prodDto.productCode});">
 							<i class="material-icons">shopping_cart</i>
 						</button>
 					</c:otherwise>
@@ -156,15 +156,15 @@
 			<!-- 장바구니 버튼 끝 -->
 			<!-- 찜 버튼 시작 -->
 			<c:choose>
-			<c:when test="${sessionScope.principal != null}">
+			<c:when test="${sessionScope.customer ne null }">
 				<c:choose>
 					<c:when test="${isFavor eq true }">
-						<button type="button" class="fav-btn" onclick="rmvFavor(${sessionScope.principal.id}, ${prodDto.prodId});">
+						<button type="button" class="fav-btn" onclick="rmvFavor(${sessionScope.customer.id}, ${prodDto.productCode});">
 							<i class="material-icons" style="color: red;">favorite</i>
 						</button>
 					</c:when>
 					<c:otherwise>
-						<button type="button" class="fav-btn" onclick="addFavor(${sessionScope.principal.id}, ${prodDto.prodId});">
+						<button type="button" class="fav-btn" onclick="addFavor(${sessionScope.customer.id}, ${prodDto.productCode});">
 							<i class="material-icons">favorite_border</i>
 						</button>
 					</c:otherwise>

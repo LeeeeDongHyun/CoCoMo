@@ -1,18 +1,23 @@
 package SHOP;
 
 public class CartDto {
-	private int userId;
-	private int prodId;
-	public int getUserId() {
-		return userId;
+	private String id;
+	private int productCode;
+	public String getId() {
+		return id;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public int getProdId() {
-		return prodId;
+	public int getProductCode() {
+		return productCode;
 	}
-	public void setProdId(int prodId) {
-		this.prodId = prodId;
+	public void setProductCode(int productCode) {
+		this.productCode = productCode;
 	}
+	@Override
+	public String toString() {
+		return "CartDto [id=" + id + ", productCode=" + productCode + "]";
+	}
+	
 }

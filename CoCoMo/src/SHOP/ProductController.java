@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import SHOP.ProductService;
 
@@ -43,11 +44,25 @@ public ProductController() {
 			dis.forward(request, response);
 
 		} else if (cmd.equals("detail")) {
-			int prodNo = Integer.parseInt(request.getParameter("prodNo"));
+			int productCode = Integer.parseInt(request.getParameter("productCode"));
 			// 상품 정보 받아오기 시작
-			DetailProdRespDto prodDto = productService.상품상세보기(prodNo);
+			DetailProdRespDto prodDto = productService.상품상세보기(productCode);
 			request.setAttribute("prodDto", prodDto);
 			// 상품 정보 받아오기 끝
+			// 찜 여부, 카트 여부 받아오기 시작
+						HttpSession session = request.getSession();
+						Customer customer = (Customer) session.getAttribute("customer");
+						if (customer != null) {
+							String id = customer.getId();
+							
+					//		FavorService favorService = new FavorService();
+					//		boolean isFavor = favorService.찜여부(id, prodNo);
+					//		request.setAttribute("isFavor", isFavor);
+							
+							CartService cartService = new CartService();
+							boolean isCart = cartService.isC(id, productCode);
+							request.setAttribute("isCart", isCart);
+						}
 			dis = request.getRequestDispatcher("/Payment.jsp");
 			dis.forward(request, response);
 
