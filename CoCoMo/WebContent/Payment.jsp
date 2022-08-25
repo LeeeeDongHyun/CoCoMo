@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="java.sql.*, SHOP.*, java.util.*" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
     <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
+<%@include file="header.jsp" %>
+
 
 <jsp:useBean id="productDAO" class="SHOP.SHOPDB" scope="session"/>
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -115,14 +115,14 @@
 					</div>
 					<div>
 					<span class="products-box-detail-realInfo-title">정품인증</span> <span
-					class="products-box-detail-realInfo-content">CoCoMo 내 모든 상품은  100% 정품입니다.</div>
+					class="products-box-detail-realInfo-content">CoCoMo 내 모든 상품은  100% 정품입니다.</span></div>
 					<div>
 					<span class="products-box-detail-allPrice-title">상품 금액</span>
 				<span class="products-box-detail-allPrice-figure">
 					<fmt:formatNumber value="${prodDto.price}" type="number" />
 				</span>
 				</div>
-				<!-- 버튼 시작 -->
+			<!-- 버튼 시작 -->
 			<c:choose>
 				<c:when test="${sessionScope.principal != null}">
 					<button type="button" class="buy-btn" onclick="location.href='<%=request.getContextPath()%>/user?cmd=directBuy&prodId=${prodDto.prodId}&userId=${sessionScope.principal.id}';">바로 구매</button>
@@ -130,13 +130,61 @@
 				<c:otherwise>
 					<button type="button" class="buy-btn" onclick="needLogin();">바로 구매</button>
 				</c:otherwise>
+			</c:choose>
+			<!-- 장바구니 버튼 시작 -->
+			<c:choose>
+			<c:when test="${sessionScope.principal != null}">
+				<c:choose>
+					<c:when test="${isCart eq true }">
+						<button type="button" class="cart-btn" onclick="rmvCart(${sessionScope.principal.id}, ${prodDto.prodId});">
+							<i class="material-icons" style="color: red;">shopping_cart</i>
+						</button>
+					</c:when>
+					<c:otherwise>
+						<button type="button" class="cart-btn" onclick="addCart(${sessionScope.principal.id}, ${prodDto.prodId});">
+							<i class="material-icons">shopping_cart</i>
+						</button>
+					</c:otherwise>
 				</c:choose>
+			</c:when>
+			<c:otherwise>
+				<button type="button" class="cart-btn" onclick="needLogin();">
+					<i class="material-icons">shopping_cart</i>
+				</button>
+			</c:otherwise>
+			</c:choose>
+			<!-- 장바구니 버튼 끝 -->
+			<!-- 찜 버튼 시작 -->
+			<c:choose>
+			<c:when test="${sessionScope.principal != null}">
+				<c:choose>
+					<c:when test="${isFavor eq true }">
+						<button type="button" class="fav-btn" onclick="rmvFavor(${sessionScope.principal.id}, ${prodDto.prodId});">
+							<i class="material-icons" style="color: red;">favorite</i>
+						</button>
+					</c:when>
+					<c:otherwise>
+						<button type="button" class="fav-btn" onclick="addFavor(${sessionScope.principal.id}, ${prodDto.prodId});">
+							<i class="material-icons">favorite_border</i>
+						</button>
+					</c:otherwise>
+				</c:choose>
+			</c:when>
+			<c:otherwise>
+				<button type="button" class="fav-btn" onclick="needLogin();">
+					<i class="material-icons">favorite_border</i>
+				</button>
+			</c:otherwise>
+			</c:choose>
+			<!-- 찜 버튼 끝 -->
+			<!-- 버튼 끝 -->
 					</div>
 									
 					
 					
 					</div>
-					
+					    <script type="text/javascript" src="/CoCoMo/js/Product.js"></script>
+	<%-- <---------------------------------------------------------------------->    --%>	
     <div class="wrap">
       <div class="product-img"></div>
       <div class="product-desc">
@@ -209,5 +257,5 @@
         </button>
       </div>
     </div>
-  </body>
-</html>
+
+    

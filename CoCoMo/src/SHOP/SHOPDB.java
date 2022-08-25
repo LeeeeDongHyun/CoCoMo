@@ -86,7 +86,15 @@ public class SHOPDB {
     	}catch (Exception e ) {
     		e.printStackTrace();
     	}
-    }
+    }	public static void close(Connection con, PreparedStatement prStmt) {
+		try {
+			con.close();
+			prStmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+    
  // JDBC     ̹   ε         ,           ̸  true,    и  false   ȯ ϴ   ޼ҵ 
     public static boolean loadConnectshop()  {
        return loadConnect("SHOP");

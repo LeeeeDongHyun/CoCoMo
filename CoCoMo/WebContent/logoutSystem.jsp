@@ -13,7 +13,7 @@
        session.setAttribute("customer", null);
        session.setAttribute("customerLogout", customerLogout);
        System.out.println("  <<for debug >> logout ID: '" + customerLogout.getId() + "'\n");
-       out.print("<script>location='Main.jsp'</script>");
+       response.sendRedirect("Product?cmd=Main");
        %>
 
 </body>

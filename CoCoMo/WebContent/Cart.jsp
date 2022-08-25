@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
+<%@ page import="java.sql.*, SHOP.*, java.util.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    <%@page import="java.util.List"%>
+    <jsp:useBean id="CartDAO" class="SHOP.SHOPDB" scope="session"/>
 <html>
 <head>
   <title>장바구니</title>
@@ -23,7 +30,7 @@
   </script>
 </head>
 <body>
-   
+
 
     <div class="navbar">
         <a href="Main.html" id="logo">
@@ -112,12 +119,44 @@
                 </tfoot>
             </form>
         </table>
+        
+        
         <div class="cart__mainbtns">
             <a href="Main.html">
                 <button class="cart__bigorderbtn left">쇼핑 계속하기</button></a>
             <a href="Main.html">
                 <button class="cart__bigorderbtn right">주문하기</button></a>
         </div>
+        
+    <c:set var="prodCount" value="0" />
+	<c:set var="prodPriceAll" value="0" />
+	<div>
+	<div>
+	<div>상품정보</div><div>상품 가격</div><div></div>
+	<div>
+	<c:forEach var="cartDto" items="${cartDtoList }">
+	<div>
+		<img src="${cartDto.imgUrl_1}" /></div>
+		<div>
+		<p>${cartDto.ProductName}</p>
+		</div>
+		<div>
+		<fmt:formatNumber value="${cartDto.price}" type="number"/>
+		<c:set var="price_one" value="${cartDto.price}"/>
+		</div>
+		<div>
+		<button type="button">remove cart</button>
+		</div>
+
+		
+	</c:forEach>
+	
+	
+	</div>
+	
+	</div>
+	
+	</div>
     </section>
  </body>
  </html>

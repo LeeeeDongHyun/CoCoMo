@@ -48,7 +48,7 @@
                      <a href="#" class="header-sub-menu">상품수정</a>
                   </c:if>
                   <a href="jjim.jsp" class="header-sub-menu">찜</a> 
-                     <a href="cart.jsp" class="header-sub-menu">장바구니</a>
+                     <a href="Cart.jsp" class="header-sub-menu">장바구니</a>
                   <a href="MyPage.jsp" class="header-sub-menu">정보수정</a>
                   <a href="logoutSystem.jsp" class="header-sub-menu">로그아웃</a>
                </div>
