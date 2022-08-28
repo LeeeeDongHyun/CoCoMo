@@ -1,13 +1,13 @@
 package SHOP;
 
 public class CartDto {
-	private String id;
+	private int userId;
 	private int productCode;
-	public String getId() {
-		return id;
+	public int getUserId() {
+		return userId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public int getProductCode() {
 		return productCode;
@@ -15,9 +15,4 @@ public class CartDto {
 	public void setProductCode(int productCode) {
 		this.productCode = productCode;
 	}
-	@Override
-	public String toString() {
-		return "CartDto [id=" + id + ", productCode=" + productCode + "]";
-	}
-	
 }

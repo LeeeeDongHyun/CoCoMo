@@ -4,8 +4,8 @@ import java.util.List;
 
 import SHOP.IndexDto;
 import SHOP.ProductDao;
-import SHOP.CheckoutProductDto;
 import SHOP.DetailProdRespDto;
+import SHOP.CheckoutProductDto;
 
 public class ProductService {
 private ProductDao productDao;
@@ -26,8 +26,8 @@ private ProductDao productDao;
 	//	return productDao.insert(dto);
 	//}
 	
-	public DetailProdRespDto 상품상세보기(int prodNo) {
-		return productDao.findByCode(prodNo);
+	public DetailProdRespDto findB(int prodNo) {
+		return productDao.findById(prodNo);
 	}
 	
 //	public List<IndexDto> 상품키워드찾기(String keyword) {
@@ -47,12 +47,12 @@ private ProductDao productDao;
 //	}
 	
 	public CheckoutProductDto 구매상품정보(int productCode) {
-	return productDao.findForBuy(productCode);
-	}
-	
+		return productDao.findForBuy(productCode);
+		}
+		
 	public List<CheckoutProductDto> 구매상품정보(List<Integer> cartList) {
-		return productDao.findForBuy(cartList);
-	}
+			return productDao.findForBuy(cartList);
+		}
 	
 //	public void 구매수증가(int prodId) {
 //		productDao.updateSoldCount(prodId);

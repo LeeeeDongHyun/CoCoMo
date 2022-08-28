@@ -3,6 +3,7 @@ package SHOP;
 import java.util.*;
 
 public class Customer {
+	int num;
     String id;// 아이디
     String name; //이름
     String password; //비밀번호
@@ -14,9 +15,10 @@ public class Customer {
 
     }
 
-    public Customer(String id, String password, String name, String address, String number, String Email)
+    public Customer(int num,String id, String password, String name, String address, String number, String Email)
     {
         super();
+        this.num = num;
         this.id = id;
         this.name = name;
         this.password = password;
@@ -26,7 +28,12 @@ public class Customer {
     }
 
 
-
+    public int getNum() {
+    	return num;
+    }
+    public void setNum(int num) {
+    	this.num = num;
+    }
     public String getId() {
         return id;
     }

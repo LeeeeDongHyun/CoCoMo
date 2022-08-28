@@ -10,7 +10,6 @@
     <jsp:useBean id="CartDAO" class="SHOP.SHOPDB" scope="session"/>
 <html>
 <head>
-<%@include file="header.jsp" %>
   <title>장바구니</title>
   <meta charset="utf-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -33,6 +32,19 @@
 <body>
 
 
+    <div class="navbar">
+        <a href="Main.html" id="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrnRG3tc4YnOFvP3cQBWISSK8QItfkhEgRFA&usqp=CAU" height="60">
+        </a>
+
+        <ul id="menu">
+            <li><a href="Login.html"><b>MyPage</b></a></li>
+            <li><a href="Login.html"><b>Cart</b></a></li>
+           <li><div class="search-box"><input type=  "text" class="search-txt"name=""placeholder="search">
+      <a class="search-btn" href="#">
+        <i class="fas fa-search"></i>
+      </a>
+    </div></li>
 
             
         </ul>

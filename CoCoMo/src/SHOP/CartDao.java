@@ -34,24 +34,24 @@ public class CartDao {
 		return null;
 	}*/// 찜관련(보류중)
 	
-	public List<CartAllDto> findByUserId(String id) {
+	public List<CartAllDto> findByUserId(String userId) {
 		Connection con = SHOPDB.getConnection();
-		PreparedStatement prStmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		StringBuffer sb = new StringBuffer();
-		sb.append("SELECT c.Id, c.productCode, p.productName, p.price, p.imgUrl_1 ");
-		sb.append("FROM cart c INNER JOIN product p ON c.productCode = p.productCode WHERE id = ?");
-
+		sb.append("SELECT c.id, c.productCode, p.productName, p.price, p.imgUrl_1 ");
+		sb.append("FROM cart c INNER JOIN product p ON c.productCode = p.productCode  WHERE id = ?" );
+		
 		String sql = sb.toString();
 		List<CartAllDto> result = new ArrayList<>();
 		
 		try {
-			prStmt = con.prepareStatement(sql);
-			prStmt.setString(1, id);
-			rs = prStmt.executeQuery();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				CartAllDto dto = new CartAllDto();
-						dto.setId(rs.getString("c.id"));
+						dto.setId(rs.getInt("c.id"));
 						dto.setProductCode(rs.getInt("c.productCode"));
 						dto.setProductName(rs.getString("p.productName"));
 						dto.setPrice(rs.getLong("p.price"));
@@ -63,21 +63,21 @@ public class CartDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			SHOPDB.close(con, prStmt, rs);
+			SHOPDB.close(con, pstmt, rs);
 		}
 		return null;
 	}
 	
-	public boolean isCart(String id, int productCode) {
+	public boolean isCart(String userId, int prodNo) {
 		Connection con = SHOPDB.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM cart WHERE ID = ? AND productCode = ?";
+		String sql = "SELECT * FROM cart WHERE userId = ? AND productCode = ?";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id);
-			pstmt.setInt(2, productCode);
+			pstmt.setString(1, userId);
+			pstmt.setInt(2, prodNo);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				return true;
@@ -92,20 +92,18 @@ public class CartDao {
 	
 	public int addCart(CartDto cartDto) {
 		Connection con = SHOPDB.getConnection();
-		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO cart(id, productCode) VALUES (?, ?)";
+		PreparedStatement prStmt = null;
+		String sql = "INSERT INTO cart(ID, productCode) VALUES (?, ?)";
 		
 		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, cartDto.getId());
-			pstmt.setInt(2, cartDto.getProductCode());
-			return pstmt.executeUpdate();
-			
+			prStmt = con.prepareStatement(sql);
+			prStmt.setInt(1, cartDto.getUserId());
+			prStmt.setInt(2, cartDto.getProductCode());
+			return prStmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("XXXXXXX");
 		} finally {
-			SHOPDB.close(con, pstmt);
+			SHOPDB.close(con, prStmt);
 		}
 		return -1;
 	}
@@ -117,7 +115,7 @@ public class CartDao {
 		
 		try {
 			prStmt = con.prepareStatement(sql);
-			prStmt.setString(1, cartDto.getId());
+			prStmt.setInt(1, cartDto.getUserId());
 			prStmt.setInt(2, cartDto.getProductCode());
 			return prStmt.executeUpdate();
 		} catch (Exception e) {

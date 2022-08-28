@@ -6,7 +6,6 @@ public class IndexDto {
 	private String productName;
 	private long price;
 	private String imgUrl_1;
-	
 	public int getProductCode() {
 		return productCode;
 	}

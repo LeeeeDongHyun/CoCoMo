@@ -77,7 +77,15 @@ public class SHOPDB {
     	}
     	return null;
     }
-    
+    public static void close(Connection con, PreparedStatement prStmt) {
+    	try {
+    		con.close();
+    		prStmt.close();
+
+    	}catch (Exception e ) {
+    		e.printStackTrace();
+    	}
+    }
     public static void close(Connection con, PreparedStatement prStmt, ResultSet rs) {
     	try {
     		con.close();
@@ -86,15 +94,7 @@ public class SHOPDB {
     	}catch (Exception e ) {
     		e.printStackTrace();
     	}
-    }	public static void close(Connection con, PreparedStatement prStmt) {
-		try {
-			con.close();
-			prStmt.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-    
+    }
  // JDBC     ̹   ε         ,           ̸  true,    и  false   ȯ ϴ   ޼ҵ 
     public static boolean loadConnectshop()  {
        return loadConnect("SHOP");
@@ -145,11 +145,11 @@ public class SHOPDB {
        }
        return rs;
     }
- // Customer   ü         ̺  customer      ÷       ϴ   ޼ҵ 
+ // 고객 회원가입 db넣기
     public static boolean insertCustomer(Customer customer) {
       try {
          customer.output();
-         String sql = "insert into customer values (?, ?, ?, ?, ?, ?);" ;
+         String sql = "insert into customer values (null,?, ?, ?, ?, ?, ?);" ;
          prStmt= con.prepareStatement(sql);
          prStmt.setString(1, customer.getId());
           prStmt.setString(2, customer.getName());
@@ -285,6 +285,7 @@ public class SHOPDB {
          }
     	return result;
     }
+    //정보수정
     public Customer getInform(String id) {
     	Customer inform=null;
     	try {

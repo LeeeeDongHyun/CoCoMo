@@ -39,6 +39,7 @@ public class CartController extends HttpServlet {
 	
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cmd = request.getParameter("cmd");
+
 		if (cmd.equals("cartAdd")) {
 			BufferedReader br = request.getReader();
 			PrintWriter out = response.getWriter();
@@ -71,18 +72,18 @@ public class CartController extends HttpServlet {
 			out.flush();
 
 		} else if (cmd.equals("cartList")) {
-	         HttpSession session = request.getSession();
-	         Customer principal = (Customer) session.getAttribute("customer");//오류해결
-	         String userId = principal.getId();
-	         
-	         /*List<Integer> favorProdIdList = cartService.찜불러오기(userId);
-	         request.setAttribute("favorProdIdList", favorProdIdList);*/
+			HttpSession session = request.getSession();
+			Customer customer = (Customer) session.getAttribute("customer");//오류해결
+			String userId = customer.getId();
+			
+			/*List<Integer> favorProdIdList = cartService.찜불러오기(userId);
+			request.setAttribute("favorProdIdList", favorProdIdList);*/
 
-	         List<CartAllDto> cartDtoList = cartService.callC(userId);
-	         request.setAttribute("cartDtoList", cartDtoList);
-	         
-	         RequestDispatcher dis = request.getRequestDispatcher("/Cart.jsp");
-	         dis.forward(request, response);
+			List<CartAllDto> cartDtoList = cartService.callC(userId);
+			request.setAttribute("cartDtoList", cartDtoList);
+			
+			RequestDispatcher dis = request.getRequestDispatcher("/Cart.jsp");
+			dis.forward(request, response);
 
 		}
 

@@ -35,11 +35,11 @@
    	  out.print("<script>location='manager.jsp'</script>");
      }
      else {
-		System.out.println("  <<for debug >> 로그인한 아이디 : " + customer.getId() + ", 사용자 이름: " + customer.getName() + "\n");
-   		session.setAttribute("customer", customer);  // // 세션처리
-   		response.sendRedirect("Product?cmd=Main");
-
-     }
+         System.out.println("  <<for debug >> 로그인한 아이디 : " + customer.getId() + ", 사용자 이름: " + customer.getName() + "\n");
+            session.setAttribute("customer", customer);  // // 세션처리
+            response.sendRedirect("Product?cmd=Main");
+        }
+           
  	    
       %>
 </body>

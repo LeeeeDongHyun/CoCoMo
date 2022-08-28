@@ -1,8 +1,3 @@
-/**
- * 
- *
- */
-
 function addCartMessage() {
 	Swal.fire({
 		html: '장바구니에 추가되었습니다.',
@@ -17,9 +12,23 @@ function addCartMessage() {
 	})
 }
 
-function addCart(id, productCode) {
+function rmvCartMessage() {
+	Swal.fire({
+		html: '장바구니에서 삭제되었습니다.',
+		icon: 'success',
+		timer: 2000,
+		timerProgressbar: true,
+		willClose: () => {
+			clearInterval(timerInterval)
+		}
+	}).then((result) => {
+		location.reload();
+	})
+}
+
+function addCart(userId, productCode) {
 	var dto = {
-		id: id,
+		userId: userId,
 		productCode: productCode
 	};
 
@@ -36,9 +45,9 @@ function addCart(id, productCode) {
 	})
 };
 
-function rmvCart(id, productCode) {
+function rmvCart(userId, productCode) {
 	var dto = {
-		id: id,
+		userId: userId,
 		productCode: productCode
 	};
 
@@ -57,17 +66,17 @@ function rmvCart(id, productCode) {
 
 function needLogin() {
 	Swal.fire({
-		title: '회원가입이 필요한 기능입니다.',
-		text: '회원가입하시겠습니까?',
+		title: '로그인이 필요한 기능입니다.',
+		text: '로그인하시겠습니까?',
 		icon: 'info',
 		closeOnClickOutside: false,
 		showCancelButton: true,
-		confirmButtonText: '회원가입',
+		confirmButtonText: '로그인',
 		cancelButtonText: '페이지 머물기',
 		reverseButtons: true
-	}).then((Customer) => {
-		if (Customer.isConfirmed) {
-			location.href='/CoCoMo/joinmembership.jsp';
+	}).then((result) => {
+		if (result.isConfirmed) {
+			location.href='/CoCoMo/login.jsp';
 		} else {
 			swal.close();
 		}

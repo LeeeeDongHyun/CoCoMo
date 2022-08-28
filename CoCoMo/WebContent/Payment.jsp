@@ -136,12 +136,14 @@
 			<c:when test="${sessionScope.customer ne null}">
 				<c:choose>
 					<c:when test="${isCart eq true }">
-						<button type="button" class="cart-btn" onclick="rmvCart(${customer.id}, ${prodDto.productCode});">
+						<button type="button" class="cart-btn" onclick="rmvCart(${sessionScope.customer.id}, ${prodDto.productCode});">
+					
 							<i class="material-icons" style="color: red;">shopping_cart</i>
 						</button>
 					</c:when>
 					<c:otherwise>
-						<button type="button" class="cart-btn" onclick="addCart(${customer.id}, ${prodDto.productCode});">
+					<script src="http://code.jquery.com/jquery-latest.js"></script> 
+						<button type="button" class="cart-btn" onclick="addCart(${sessionScope.customer.id}, ${prodDto.productCode});">
 							<i class="material-icons">shopping_cart</i>
 						</button>
 					</c:otherwise>
@@ -259,3 +261,4 @@
     </div>
 
     
+<script type="text/javascript" src="/CoCoMo/js/Product.js"></script>
