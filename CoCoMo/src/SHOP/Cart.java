@@ -1,32 +1,25 @@
 package SHOP;
 
 public class Cart {
-	int basketNo;
-	String id;
-	int productCode;
-	int EA;
-	public int getBasketNo() {
-		return basketNo;
+	private int num;
+	private int userId;
+	private int productId;
+	public int getNum() {
+		return num;
 	}
-	public void setBasketNo(int basketNo) {
-		this.basketNo = basketNo;
+	public void setNum(int num) {
+		this.num = num;
 	}
-	public String getId() {
-		return id;
+	public int getUserId() {
+		return userId;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
-	public int getProductCode() {
-		return productCode;
+	public int getProductId() {
+		return productId;
 	}
-	public void setProductCode(int productCode) {
-		this.productCode = productCode;
-	}
-	public int getEA() {
-		return EA;
-	}
-	public void setEA(int eA) {
-		EA = eA;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 }

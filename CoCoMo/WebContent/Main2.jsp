@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
+<%@ page import="java.sql.*, SHOP.*, java.util.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<jsp:useBean id="productDAO" class="SHOP.SHOPDB" scope="session"/>
 <html>
 <head>
   <title>CoCoMo</title>
@@ -33,13 +39,20 @@
         <ul id="menu">
             <li><a href="logoutSystem.jsp"><b>Logout</b></a></li>
             <li><a href="MyPage.jsp"><b>MyPage</b></a></li>
-            <li><a href="Cart.jsp"><b>Cart</b></a></li>
+           <li><a href="<%=request.getContextPath()%>/cart?cmd=cartList">장바구니</a></li>
             <li><a href="#"><b>Search :  <input type=  "text"><input type="submit" value=" 검색 "></b></a></li>
 
 
         </ul>
     </div>
-
+<c:choose>
+				<c:when test="${sessionScope.customer eq null }">
+					당신을 위한 추천
+				</c:when>
+				<c:otherwise>
+					${sessionScope.customer.id }님을 위한 추천
+				</c:otherwise>
+			</c:choose>
      <div class="hero-header"></div>
 
     <div class="products">
@@ -80,6 +93,48 @@
 </li>
 </ul>
 </div>
+<div>
+	<div>
+	<c:forEach var="product" items="${productList30}">
+	<a  href="/CoCoMo/Product?cmd=detail&prodNo=${product.productCode}">
+	<img src="${product.imgUrl_1}"/>
+	</a>
+	<ul>
+	<li>${product.productName}</li>
+	<li>${product.size}</li>
+	<li>${product.productCode}</li>
+	</ul>
+	</c:forEach>
+	
+	</div>
+<div>
+
+<div>
+
+<div >
+			<div class="main-prd-list">
+				<c:forEach var="Product" items="${productList30}">
+					<div class="main-prd-box">
+					<a class="link-prod" href="/shop/product?cmd=detail&prodNo=${product.productId}"></a>
+						<img src="${Product.imgUrl_1}"  /> <!-- 상품이미지 -->
+						<ul class="main-prd-item">
+							<li class="prd-item-company">${product.companyName}</li> <!-- 제조사 -->
+							<li class="prd-item-name">${product.productName}</li> <!-- 상품명 -->
+							<li class="prd-item-price"><fmt:formatNumber value="${Product.price}" type="number" /></li> <!-- 가격 -->
+							<li class="prd-item-soldCount">${product.soldCount}개 구매중</li> <!-- 판매량 default = 0 -->
+						</ul>
+					</div>
+				</c:forEach>
+			</div>
+		</div>
+	</main>
+	<!-- End of main-prd -->
+	</div>
+	<!-- End of Container -->
+
+</div>
+	
+	</div>
 
         <div class="product-list">            
             <a href="#" class="product">

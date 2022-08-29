@@ -127,18 +127,18 @@
             <a href="Main.html">
                 <button class="cart__bigorderbtn right">주문하기</button></a>
         </div>
-        
+        <div>
     <c:set var="prodCount" value="0" />
 	<c:set var="prodPriceAll" value="0" />
 	<div>
 	<div>
 	<div>상품정보</div><div>상품 가격</div><div></div>
 	<div>
-	<c:forEach var="cartDto" items="${cartDtoList }">
+	<c:forEach var="cartDto" items="${cartDtoList}">
 	<div>
 		<img src="${cartDto.imgUrl_1}" /></div>
 		<div>
-		<p>${cartDto.ProductName}</p>
+		<p>${cartDto.productName}</p>
 		</div>
 		<div>
 		<fmt:formatNumber value="${cartDto.price}" type="number"/>
@@ -150,7 +150,7 @@
 
 		
 	</c:forEach>
-	
+	</div>
 	
 	</div>
 	

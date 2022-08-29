@@ -9,7 +9,6 @@
 <jsp:useBean id="productDAO" class="SHOP.SHOPDB" scope="session"/>
 <html>
 <head>
-<%@include file="header.jsp" %>
   <title>CoCoMo</title>
   <meta charset="utf-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -99,7 +98,7 @@
 
 	<div>
 	<c:forEach var="product" items="${productList30}">
-	<a  href="/CoCoMo/Product?cmd=detail&prodNo=${product.productCode}">
+	<a  href="/CoCoMo/Product?cmd=detail&prodNo=${product.productId}">
 	<img src="${product.imgUrl_1}"/>
 	</a>
 	<ul>

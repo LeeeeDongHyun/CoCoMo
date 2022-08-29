@@ -1,11 +1,18 @@
 package SHOP;
 
 public class IndexDto {
+	private int productId;
 	private int productCode;
 	private int size;
 	private String productName;
 	private long price;
 	private String imgUrl_1;
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
 	public int getProductCode() {
 		return productCode;
 	}

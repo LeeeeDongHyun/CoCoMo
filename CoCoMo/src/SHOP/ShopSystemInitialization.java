@@ -20,7 +20,7 @@ public class ShopSystemInitialization {
               " address varchar(30) not null, " +
               " Email varchar(30) not null, " +
               " number varchar(20) not null, " +
-             " primary key(num,ID) " +
+             " primary key(num) " +
                 " );",
                 " insert into Shop.Product values(1,'qwer', 'qwert', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'qweer', 'qwer','01068896787'); ",
                 
@@ -90,8 +90,8 @@ public class ShopSystemInitialization {
                 "create table Cart( " +
                 "num int auto_increment, " +
               //  "basketNo int not null, " +
-                "userId varchar(20) not null, " +
-                "productCode int not null, " +
+                "userId int not null, " +
+                "productId int not null, " +
              //   "totalPrice int not null, " +
               //  "EA int not null, " +
               "primary key(num) " +
@@ -138,4 +138,3 @@ public class ShopSystemInitialization {
          
          
       }
-      

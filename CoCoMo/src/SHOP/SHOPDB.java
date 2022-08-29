@@ -145,11 +145,11 @@ public class SHOPDB {
        }
        return rs;
     }
- // 고객 회원가입 db넣기
+ // Customer   ü         ̺  customer      ÷       ϴ   ޼ҵ 
     public static boolean insertCustomer(Customer customer) {
       try {
          customer.output();
-         String sql = "insert into customer values (null,?, ?, ?, ?, ?, ?);" ;
+         String sql = "insert into customer(ID, name, password, address, Email, number) values (?, ?, ?, ?, ?, ?);" ;
          prStmt= con.prepareStatement(sql);
          prStmt.setString(1, customer.getId());
           prStmt.setString(2, customer.getName());
@@ -194,14 +194,15 @@ public class SHOPDB {
         try {
            //if (rs.getRow() ==  0)
            //   return null;
-
+           int num = rs.getInt("num");
            String id = rs.getString("id");  // ID   Ʈ    Ʈ          
            String name = rs.getString("name");
            String password = rs.getString("password");
            String address = rs.getString("address");
            String Email = rs.getString("Email");
            String number = rs.getString("number");
-
+           
+           cu.setNum(num);
            cu.setId(id);   // ResultSet     Ʈ    Ʈ      get Ͽ   ʵ                
            cu.setName(name);
            cu.setPassword(password);
@@ -219,7 +220,7 @@ public class SHOPDB {
     public static Customer loginProcess(String id,  String password) {
        try {
          // SQL    ǹ         Ѵ .
-         String sql = "select * from Customer where id=? and password=?;" ;
+         String sql = "select * from Customer c where id=? and password=?;" ;
          outputForDebug("In getCustomer() SQL : " + sql);
          PreparedStatement prStmt = con.prepareStatement(sql);
          prStmt.setString(1, id);
@@ -227,7 +228,14 @@ public class SHOPDB {
 
          ResultSet rs = prStmt.executeQuery();
          if (rs.next())  {
-            Customer customer = getCustomerFromRS(rs);
+            Customer customer = new Customer();
+            customer.setNum(rs.getInt("c.num"));
+            customer.setId(rs.getString("c.id"));
+            customer.setName(rs.getString("c.name"));
+            customer.setPassword(rs.getString("c.password"));
+            customer.setAddress(rs.getString("c.address"));
+            customer.setEmail(rs.getString("c.Email"));
+            customer.setNumber(rs.getString("c.number"));
             return customer;
          }
       } catch( SQLException ex ) {

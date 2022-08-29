@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.*;
 
 public class Product {
-
+	
+   int num;
    int productCode; //상품코드
    int size;   //사이즈
    String productName; //상품이름
@@ -31,7 +32,15 @@ public class Product {
        this.price = price;
        this.imgUrl_1 = imgUrl_1;
    }
+   public int getNum() {
+	   	return num;
+	   }
 
+
+	   public void setNum(int num) {
+	   	this.num = num;
+	   }
+   
    public int getProductCode() {
    	return productCode;
    }

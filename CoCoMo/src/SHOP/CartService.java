@@ -12,8 +12,8 @@ private CartDao cartDao;
 		this.cartDao = new CartDao();
 	}
 	
-	public boolean isC(String id, int prodNo) {
-		return cartDao.isCart(id, prodNo);
+	public boolean isC(int userId, int prodNo) {
+		return cartDao.isCart(userId, prodNo);
 	}
 	
 	public int addC(CartDto cartDto) {
@@ -24,7 +24,7 @@ private CartDao cartDao;
 		return cartDao.rmvCart(cartDto);
 	}
 	
-	public List<CartAllDto> callC(String userId) {
+	public List<CartAllDto> callC(int userId) {
 		return cartDao.findByUserId(userId);
 
 }

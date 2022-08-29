@@ -18,8 +18,8 @@ public class ProductDao {
 		PreparedStatement prStmt = null;
 		ResultSet rs = null;
 	//	String sql = "SELECT p.id, p.productName, c.name, p.price, p.soldCount, p.imgUrl_1 FROM product p INNER JOIN company c ON p.companyId = c.id WHERE p.id < ?";
-		String sql =  "SELECT p.productCode, p.productName, p.price, "
-				+ "  p.size, p.imgUrl_1 FROM Product p WHERE p.productCode < ?";
+		String sql =  "SELECT p.num, p.productCode, p.productName, p.price, "
+				+ "  p.size, p.imgUrl_1 FROM Product p WHERE p.num < ?";
 		
 		List<IndexDto> result = new ArrayList<>();
 		
@@ -29,6 +29,7 @@ public class ProductDao {
 			rs = prStmt.executeQuery();
 			while (rs.next()) {
 				IndexDto indexDto = new IndexDto();
+						indexDto.setProductId(rs.getInt("p.num"));
 						indexDto.setProductCode(rs.getInt("p.productCode"));
 						indexDto.setSize(rs.getInt("p.size"));
 						indexDto.setProductName(rs.getString("p.productName"));
@@ -49,7 +50,7 @@ public class ProductDao {
 		Connection con = SHOPDB.getConnection();
 		PreparedStatement prStmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT p.productName, p.price from Product p ORDER BY productName DESC";
+		String sql = "SELECT p.num, p.productName, p.price from Product p ORDER BY p.num DESC";
 		
 		List<IndexDto> result = new ArrayList<>();
 		
@@ -58,6 +59,7 @@ public class ProductDao {
 			rs = prStmt.executeQuery();
 			while (rs.next()) {
 				IndexDto indexDto = new IndexDto();
+				indexDto.setProductId(rs.getInt("p.num"));
 				indexDto.setProductCode(rs.getInt("p.productCode"));
 				indexDto.setSize(rs.getInt("p.size"));
 				indexDto.setProductName(rs.getString("p.productName"));
@@ -79,11 +81,11 @@ public class ProductDao {
 		ResultSet rs = null;
 		StringBuffer sb = new StringBuffer();
 	//	sb.append("SELECT p.id, p.imgUrl_1, p.imgUrl_2, p.imgUrl_3, p.imgUrl_4, c.url, c.name, p.productName, p.price, p.soldCount, p.detail ");
-		sb.append("SELECT p.productName, p.size, p.price, p.imgUrl_1 ");
+		sb.append("SELECT p.num, p.productCode, p.productName, p.size, p.price, p.imgUrl_1 ");
 	//	sb.append("FROM product p INNER JOIN company c ON p.companyId = c.id ");
 		sb.append("FROM product p ");
 	//	sb.append("WHERE p.id = ?");
-		sb.append("WHERE P.productCode = ?");
+		sb.append("WHERE p.num = ?");
 		String sql = sb.toString();
 		
 		try {
@@ -92,11 +94,13 @@ public class ProductDao {
 			rs = prStmt.executeQuery();
 			if (rs.next()) {
 				DetailProdRespDto dto = new DetailProdRespDto();
+						dto.setProdId(rs.getInt("p.num"));
+						dto.setProductCode(rs.getInt("p.productCode"));
 						dto.setProductName(rs.getString("p.productName"));
 						dto.setSize(rs.getInt("p.size"));
 						dto.setImgUrl_1(rs.getString("p.imgUrl_1"));
 						dto.setPrice(rs.getLong("p.price"));
-					//	dto.setDetail(rs.getString("p.detail"));
+						//dto.setDetail(rs.getString("p.detail"));
 				return dto;
 			}
 		} catch (Exception e) {

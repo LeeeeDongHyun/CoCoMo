@@ -53,14 +53,14 @@ public ProductController() {
 	                  HttpSession session = request.getSession();
 	                  Customer customer = (Customer) session.getAttribute("customer");
 	                  if (customer != null) {
-	                     String id = customer.getId();
+	                     int userId = customer.getNum();
 	                     
 	               //      FavorService favorService = new FavorService();
 	               //      boolean isFavor = favorService.Âò¿©ºÎ(id, prodNo);
 	               //      request.setAttribute("isFavor", isFavor);
 	                     
 	                     CartService cartService = new CartService();
-	                     boolean isCart = cartService.isC(id, prodNo);
+	                     boolean isCart = cartService.isC(userId, prodNo);
 	                     request.setAttribute("isCart", isCart);
 	                  }
 	         dis = request.getRequestDispatcher("/Payment.jsp");

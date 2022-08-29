@@ -39,7 +39,6 @@
             session.setAttribute("customer", customer);  // // 세션처리
             response.sendRedirect("Product?cmd=Main");
         }
-           
  	    
       %>
 </body>

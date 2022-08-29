@@ -1,12 +1,19 @@
 package SHOP;
 
 public class DetailProdRespDto {
+	private int prodId;
 	private int productCode;
 	private int size;
 	private String productName;
 	private long price;
 	private String imgUrl_1;
-	private String detail;
+
+	public int getProdId() {
+		return prodId;
+	}
+	public void setProdId(int prodId) {
+		this.prodId = prodId;
+	}
 	public int getProductCode() {
 		return productCode;
 	}
@@ -37,10 +44,5 @@ public class DetailProdRespDto {
 	public void setImgUrl_1(String imgUrl_1) {
 		this.imgUrl_1 = imgUrl_1;
 	}
-	public String getDetail() {
-		return detail;
-	}
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
+	
 }

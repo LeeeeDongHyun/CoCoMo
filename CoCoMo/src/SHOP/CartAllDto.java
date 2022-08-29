@@ -1,22 +1,22 @@
 package SHOP;
 
 public class CartAllDto {
-	private int id;
-	private int productCode;
+	private int num;
+	private int productId;
 	private String productName;
 	private String imgUrl_1;
 	private long price;
-	public int getId() {
-		return id;
+	public int getNum() {
+		return num;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setNum(int num) {
+		this.num = num;
 	}
-	public int getProductCode() {
-		return productCode;
+	public int getProductId() {
+		return productId;
 	}
-	public void setProductCode(int productCode) {
-		this.productCode = productCode;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 	public String getProductName() {
 		return productName;

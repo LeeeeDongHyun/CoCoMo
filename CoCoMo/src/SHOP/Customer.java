@@ -15,10 +15,9 @@ public class Customer {
 
     }
 
-    public Customer(int num,String id, String password, String name, String address, String number, String Email)
+    public Customer(String id, String password, String name, String address, String number, String Email)
     {
         super();
-        this.num = num;
         this.id = id;
         this.name = name;
         this.password = password;
@@ -29,10 +28,10 @@ public class Customer {
 
 
     public int getNum() {
-    	return num;
+        return num;
     }
     public void setNum(int num) {
-    	this.num = num;
+        this.num = num;
     }
     public String getId() {
         return id;

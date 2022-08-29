@@ -18,6 +18,7 @@ import SHOP.Customer;
 import SHOP.CartDto;
 import SHOP.CartAllDto;
 
+import com.google.gson.Gson;
 
 @WebServlet("/cart")
 public class CartController extends HttpServlet {
@@ -41,10 +42,12 @@ public class CartController extends HttpServlet {
 		String cmd = request.getParameter("cmd");
 
 		if (cmd.equals("cartAdd")) {
+			Gson gson = new Gson();
 			BufferedReader br = request.getReader();
 			PrintWriter out = response.getWriter();
 			String data = br.readLine();
-			CartDto cartDto = new CartDto();
+			CartDto cartDto = gson.fromJson(data, CartDto.class);
+			
 			
 			int result = cartService.addC(cartDto);
 			
@@ -56,11 +59,11 @@ public class CartController extends HttpServlet {
 			out.flush();
 				
 		} else if (cmd.equals("cartRmv")) {
-
+			Gson gson = new Gson();
 			BufferedReader br = request.getReader();
 			PrintWriter out = response.getWriter();
 			String data = br.readLine();
-			CartDto cartDto = new CartDto();
+			CartDto cartDto = gson.fromJson(data, CartDto.class);
 			
 			int result = cartService.delC(cartDto);
 			
@@ -74,7 +77,7 @@ public class CartController extends HttpServlet {
 		} else if (cmd.equals("cartList")) {
 			HttpSession session = request.getSession();
 			Customer customer = (Customer) session.getAttribute("customer");//오류해결
-			String userId = customer.getId();
+			int userId = customer.getNum();//오류
 			
 			/*List<Integer> favorProdIdList = cartService.찜불러오기(userId);
 			request.setAttribute("favorProdIdList", favorProdIdList);*/
