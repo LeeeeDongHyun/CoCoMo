@@ -3,12 +3,12 @@ import="java.sql.*, SHOP.*, util.*, java.util.regex.Pattern, java.util.regex.Mat
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
-<TITLE>회원가입 처리</TITLE>
-  <HEAD>
-  </HEAD>
-  <BODY>
-   <jsp:useBean class="SHOP.Customer" id="customer" scope="request" />
-   <jsp:setProperty name="customer" property="*" />
+  	<head>
+  	<title>회원가입 시스템</title>
+  	</head>
+  	<body>
+	<jsp:useBean class="SHOP.Customer" id="customer" scope="request" />
+	<jsp:setProperty name="customer" property="*" />
     <% 
 
        String password = request.getParameter("password");
@@ -55,5 +55,5 @@ import="java.sql.*, SHOP.*, util.*, java.util.regex.Pattern, java.util.regex.Mat
         out.print("<script>location='login.jsp'</script>");
     %>
     
-  </BODY>
-</HTML>
+  </body>
+</html>

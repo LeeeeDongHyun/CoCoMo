@@ -1,0 +1,51 @@
+table{
+   width: 80%;
+   color : white;   
+}
+
+
+td {
+padding: 15px 0px;
+text-align: center;
+color: black   ;
+}
+
+.upbtn{
+background-color: white;
+border: 1px lightgray solid;
+width: 200px;
+height: 50px;
+font-size: 16px;
+margin: none;
+border-radius: 5px;
+text-align: center;
+}
+
+.delbtn{
+background-color: Black;
+color: white;
+border: none;
+width: 200px;
+height: 50px;
+font-size: 16px;
+margin: auto   ;
+border-radius: 5px;
+align: center;
+
+
+}
+
+inputs{
+   margin:none;
+   color: pink;
+}
+
+.btn{
+    display: inline-block;
+    margin-top:30px;
+}
+
+.form-wrapper{
+    margin: auto;
+    text-align: center;
+}

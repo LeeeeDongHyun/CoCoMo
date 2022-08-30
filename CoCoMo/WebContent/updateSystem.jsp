@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 	import="java.sql.*, util.*, java.util.regex.Pattern, java.util.regex.Matcher, SHOP.*"%>
         <% request.setCharacterEncoding("UTF-8"); %>
-<HTML>
-  <HEAD>
+<html>
+  <haed>
   <meta charset="UTF-8">
-  <TITLE>수정</TITLE>
-  </HEAD>
-  <BODY>
+  <title>수정</title>
+  </head>
+  <body>
    <jsp:useBean class="SHOP.Customer" id="customer" scope="request" />
    <jsp:setProperty name="customer" property="*" />
     <%  
@@ -33,5 +33,5 @@
     	out.print("<script>location='customerInfo.jsp'</script>");
     }
     %>
-  </BODY>
-</HTML>
+  </body>
+</html>

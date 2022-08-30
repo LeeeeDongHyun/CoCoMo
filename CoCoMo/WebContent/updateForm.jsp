@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 	import="java.sql.*, util.*, java.util.regex.Pattern, java.util.regex.Matcher, SHOP.*"%>
         <% request.setCharacterEncoding("UTF-8"); %>
-<HTML>
-  <HEAD>
+<html>
+  <head>
+  <%@include file="header.jsp" %>
   <meta charset="UTF-8">
-  <TITLE>수정</TITLE>
-  </HEAD>
-  <BODY>
+  <title>회원정보 수정</title>
+  </head>
+  <body>
   <%  
       Customer customer = (Customer) session.getAttribute("customer");
 	  String id = customer.getId();
@@ -23,27 +24,21 @@
     <label>
         
         <input type="hidden" class="size" name="id"value="<%= ct.getId() %>">
-        <p></p>
         </label><!--아이디-->
         <label>
         <p style="text-align: left; font-size:12px; color:#666">username</p>
         <input type="text" placeholder="이름" class="size" name="name" "value="<%= ct.getName() %>" required>
-        <p></p>
         </label><!--이름-->
-
         <label>
         <!-- <span>PW</span> -->
         <p style="text-align: left; font-size:12px; color:#666">Password </p>
         <input type="password" placeholder="비밀번호" class="size" name="password" value="<%=ct.getPassword() %>" required>
         </label><!--비밀번호-->
-
-      <label>
-      <p style="text-align: left; font-size:12px; color:#666">Address</p>
+      	<label>
+      	<p style="text-align: left; font-size:12px; color:#666">Address</p>
         <input type="text" placeholder="주소" class="size" name="address" value="<%=ct.getAddress() %>" required>
-        <p></p>
         </label><!--주소-->
-
-         <label>
+        <label>
                 <!-- <span>PW</span> -->
             <p style="text-align: left; font-size:12px; color:#666">E-mail</p>
                 <input type="text" placeholder="이메일" class="size" name="email" value="<%=ct.getEmail() %>" required>
@@ -66,6 +61,5 @@
         </p>
     
     </form>
-    </BODY>
-  </BODY>
-</HTML>
+  </body>
+</html>

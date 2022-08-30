@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=euc_kr" 
 	import="java.sql.*, util.*, java.util.regex.Pattern, java.util.regex.Matcher, SHOP.*"%>
 <% request.setCharacterEncoding("euc-kr"); %>
-<HTML>
-  <HEAD>
+<html>
+  <head>
   <meta charset="EUC-KR">
-  <TITLE>삭제</TITLE>
-  </HEAD>
-  <BODY>
+  <title>회원탈퇴하기 시스템</title>
+  </head>
+  <body>
 <%
 String id = request.getParameter("id");
 String password = request.getParameter("password");
@@ -23,5 +23,5 @@ else{
 	out.print("<script>location='customerInfo.jsp'</script>");
 }
 %>
-  </BODY>
-</HTML>
+  </body>
+</html>

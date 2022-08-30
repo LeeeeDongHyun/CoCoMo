@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=euc_kr" 
 	import="java.sql.*, SHOP.*, util.*, java.util.regex.Pattern, java.util.regex.Matcher"%>
 <% request.setCharacterEncoding("euc-kr"); %>
-<HTML>
-  <HEAD>
+<html>
+  <head>
   <meta charset="EUC-KR">
-  <TITLE>노선검색</TITLE>
-  </HEAD>
-  <BODY>
+  <title>노선검색</title>
+  </head>
+  <body>
   
     
-  </BODY>
-</HTML>
+  </body>
+</html>

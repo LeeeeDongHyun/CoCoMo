@@ -3,7 +3,7 @@ package SHOP;
 public class IndexDto {
 	private int productId;
 	private int productCode;
-	private int size;
+	private String size;
 	private String productName;
 	private long price;
 	private String imgUrl_1;
@@ -19,10 +19,10 @@ public class IndexDto {
 	public void setProductCode(int productCode) {
 		this.productCode = productCode;
 	}
-	public int getSize() {
+	public String getSize() {
 		return size;
 	}
-	public void setSize(int size) {
+	public void setSize(String size) {
 		this.size = size;
 	}
 	public String getProductName() {

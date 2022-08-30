@@ -16,20 +16,19 @@
 <link rel="stylesheet" href="css/MyPage.css">
 </head>
 <body>
-   <div class="navbar">
+	<div class="navbar">
         <a href="Main2.jsp" id="logo">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrnRG3tc4YnOFvP3cQBWISSK8QItfkhEgRFA&usqp=CAU" height="60">
         </a>
-
         <ul id="menu">
             <li><a href="logout.jsp"><b>MyPage</b></a></li>
             <li><a href="cart.jsp"><b>Cart</b></a></li>
-            <li><div class="search-box"><input type=  "text" class="search-txt"name=""placeholder="search"></div></li></ul>
-             
+            <li><div class="search-box"><input type=  "text" class="search-txt"name=""placeholder="search"></div></li>
+		</ul>  
       <a class="search-btn" href="#">
         <i class="fas fa-search"></i>
       </a>
-      </div>
+	</div>
       <%
       request.setCharacterEncoding("utf-8");
       Class.forName("com.mysql.jdbc.Driver");
@@ -44,8 +43,7 @@
       ResultSet rs = pstmt.executeQuery();
       %>
      
-      <h1>나의 정보 조회</h1>
-      
+      <h1>나의 정보 조회</h1>      
       <table border="1">
       <tr>
       <td>아이디</td>
@@ -64,7 +62,6 @@
       </tr>
       <%} %>
       </table>
-      <a href = "info.jsp" title="메인이동">메인이동</a>
-    
+      <a href = "info.jsp" title="메인이동">메인이동</a>    
 </body>
 </html>

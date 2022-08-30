@@ -6,6 +6,7 @@ public class CartAllDto {
 	private String productName;
 	private String imgUrl_1;
 	private long price;
+	private String size;
 	public int getNum() {
 		return num;
 	}
@@ -35,5 +36,11 @@ public class CartAllDto {
 	}
 	public void setPrice(long price) {
 		this.price = price;
+	}
+	public String getSize() {
+		return size;
+	}
+	public void setSize(String size) {
+		this.size = size;
 	}
 }

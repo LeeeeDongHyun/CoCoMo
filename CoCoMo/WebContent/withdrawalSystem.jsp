@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=euc_kr" 
 	import="java.sql.*, util.*, java.util.regex.Pattern, java.util.regex.Matcher, SHOP.*"%>
 <% request.setCharacterEncoding("euc-kr"); %>
-<HTML>
-  <HEAD>
+<html>
+  <head>
   <meta charset="EUC-KR">
-  <TITLE>회원가입 처리</TITLE>
-  </HEAD>
-  <BODY>
+  <title>회원가입 처리</title>
+  </head>
+  <body>
     <% 
 		String id = request.getParameter("id");
    		SHOPDB.loadConnectshop();	
@@ -21,5 +21,5 @@
 			out.print("<script>location='manager.jsp'</script>");
 		}
     %>
-  </BODY>
-</HTML>
+  </body>
+</html>

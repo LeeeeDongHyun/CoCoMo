@@ -4,6 +4,7 @@
     <% request.setCharacterEncoding("euc-kr"); %>
 <!DOCTYPE html>
 <html>
+<%@include file="header.jsp" %>
 <head>
 <meta charset="UTF-8">
 <title>My Page</title>
@@ -11,30 +12,13 @@
 </head>
 <body>
 
-   <div class="navbar">
-        <a href="Main.jsp" id="logo">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrnRG3tc4YnOFvP3cQBWISSK8QItfkhEgRFA&usqp=CAU" height="60">
-        </a>
-
-        <ul id="menu">
-            <li><a href="logoutSystem.jsp"><b>Logout</b></a></li>
-            <li><a href="Cart.jsp"><b>Cart</b></a></li>
-            <li><div class="search-box"><input type=  "text" class="search-txt"name=""placeholder="search">
-      <a class="search-btn" href="#">
-        <i class="fas fa-search"></i>
-      </a>
-    </div></li>
-
-
-            
-        </ul>
-    </div>
+  
 
 <div class="wrap">
   <div class="greenContainer">
     <div>
       <div class="grade">GOLD</div>
-      <div class="name">최 투더 원 투더 표</div>
+      <div class="name">${customer.id }님</div>
       <li><a href="customerInfo.jsp"><b>내 정보 보기 </a></li>
     </div>    
   </div>

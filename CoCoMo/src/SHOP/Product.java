@@ -14,7 +14,7 @@ public class Product {
 	
    int num;
    int productCode; //상품코드
-   int size;   //사이즈
+   String size;   //사이즈
    String productName; //상품이름
    long price; //가격
    String imgUrl_1;
@@ -23,7 +23,7 @@ public class Product {
    public Product() {
 
    }
-   public Product(int productCode,  int size, String productName, int price, String imgUrl_1)
+   public Product(int productCode,  String size, String productName, int price, String imgUrl_1)
    {
        super();
        this.productCode = productCode;
@@ -51,12 +51,12 @@ public class Product {
    }
 
 
-   public int getSize() {
+   public String getSize() {
    	return size;
    }
 
 
-   public void setSize(int size) {
+   public void setSize(String size) {
    	this.size = size;
    }
 

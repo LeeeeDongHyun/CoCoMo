@@ -39,7 +39,7 @@ public class CartDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		StringBuffer sb = new StringBuffer();
-		sb.append("SELECT c.num, c.productId, p.productName, p.price, p.imgUrl_1 ");
+		sb.append("SELECT c.num, c.productId, p.productName, p.price, p.imgUrl_1, p.size ");
 		sb.append("FROM cart c INNER JOIN product p ON c.productId = p.num  WHERE userId = ?" );
 		
 		String sql = sb.toString();
@@ -55,6 +55,7 @@ public class CartDao {
 						dto.setProductId(rs.getInt("c.productId"));
 						dto.setProductName(rs.getString("p.productName"));
 						dto.setPrice(rs.getLong("p.price"));
+						dto.setSize(rs.getString("size"));
 						dto.setImgUrl_1(rs.getString("p.imgUrl_1"));
 
 				result.add(dto);

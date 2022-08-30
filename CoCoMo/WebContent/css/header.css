@@ -1,0 +1,113 @@
+  .header{
+       height: 60px;
+       padding-left: 30px;
+       padding-right: 30px;
+   
+   }
+   
+  .header #header-logo-img{
+       line-height: 60px;
+   }
+   
+   .header img{
+       vertical-align: top;
+       border: blanchedalmond 5px ;
+   }
+    #header-first #header-main-menu{
+       float: right;
+       list-style-type: none;
+       padding: 0;
+       margin: 0;
+       position: absolute; right: 30px; top: 50px;
+      
+       
+   }
+    #header-first #header-main-menu1{
+       float: right;
+       list-style-type: none;
+       padding: 0;
+       margin: 0;
+       position: absolute; right: 110px; top: 50px;
+      
+       
+   }
+   
+    #header-first #header-main-menu > ul li{
+       float: left;
+       width:21%;
+       height:50%;
+       line-height:20px;
+       text-align: center;
+       list-style:none;
+      
+   }
+   #header-first #header-main-menu1 > ul li{
+       float: left;
+       width:20%;
+       height:50%;
+       line-height:20px;
+       text-align: center;
+       list-style:none;
+      
+   }
+  #header-first  #header-main-menu li a{
+       color: #545454;
+       font-size: 13px;
+       text-decoration: none;
+   }
+  #header-first  #header-main-menu1 li a{
+       color: #545454;
+       font-size: 13px;
+       text-decoration: none;
+   }
+   
+
+.header.search-box{
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 30px;
+  background-color: #fff;
+  border: 1px solid #51e3d4;
+  border-radius: 30px;
+  transition: 0.4s;
+  width:300px;
+}
+.header.search-box:hover{
+  box-shadow: 0px 0px .5px 1px #51e3d4;
+  width: 300px;
+}
+.header.search-btn{
+  text-decoration: none;
+  float: right;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #51e3d4;
+}
+.header.search-box:hover > .search-btn{
+  background-color: #fff;
+}
+.header.search-txt{
+  display: flex;
+  padding: 0;
+  width: 0px;
+  border:none;
+  background: none;
+  outline: none;
+  float: left;
+  font-size: 1rem;
+  line-height: 30px;
+  transition: .4s;
+}
+.header .search-box:hover > .search-txt{
+  width: 240px;
+  padding: 0 6px;
+}
+   

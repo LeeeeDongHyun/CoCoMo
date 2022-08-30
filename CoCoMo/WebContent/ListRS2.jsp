@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" 
 	import="java.sql.*, SHOP.*, util.*, java.util.regex.Pattern, java.util.regex.Matcher"%>
 <% request.setCharacterEncoding("euc-kr"); %>
-<HTML>
-<HEAD>
+<html>
+<head>
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/mng.css">
   <meta charset="EUC-KR">
-  <TITLE>CoCoMo</TITLE>
-  </HEAD>
-  <BODY>
+  <title>CoCoMo</title>
+  </head>
+  <body>
   <section>
   <div id="mainmng">
     <br> 
@@ -105,9 +105,8 @@ System.out.println("   >> clms : " + columns[i] + " " + columnTypes[i]+ "\n");
 				out.println("</tr>" );
 			}
       %>
-	  </table >
     <br>
     </div>
     </section>
-  </BODY>
-</HTML>
+  </body>
+</html>

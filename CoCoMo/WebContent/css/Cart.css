@@ -13,15 +13,21 @@ height: 450px;
  }
 
 .navbar #logo{
-    height: 600px;
+    height: 700px;
 }
 
-.navbar img{
+.cart img{
     vertical-align: top;
     float: left;
     border: blanchedalmond 5px ;
     width: 160px;
     height: 60px;
+}
+.cart__list__detail  img {
+display: block;
+width: 90px;
+height: 90px;
+margin: auto;
 }
 
 .navbar #menu{
@@ -52,6 +58,13 @@ margin: 0;
 box-sizing: border-box;
 }
 
+ img {
+display: block;
+width: 90px;
+height: 90px;
+margin: auto;
+}
+
 p,
 span {
 margin: 0;
@@ -60,18 +73,10 @@ margin: 0;
 a {
 color: black;
 }
-
-img {
-display: block;
-width: 80%;
-height: 80px;
-margin: auto;
-}
-
 .cart {
 width: 80%;
 margin: auto;
-padding: 30px;
+padding: 60px;
 }
 
 .cart ul {

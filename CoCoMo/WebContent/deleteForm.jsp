@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 	import="java.sql.*, util.*, java.util.regex.Pattern, java.util.regex.Matcher, SHOP.*"%>
         <% request.setCharacterEncoding("UTF-8"); %>
-<HTML>
-  <HEAD>
+<html>
+  <head>
+  <%@include file="header.jsp" %>
   <meta charset="UTF-8">
-  <TITLE>삭제</TITLE>
-  </HEAD>
-  <BODY>
+  <title>회원탈퇴하기</title>
+  </head>
+  <body>
     <%  
       Customer customer = (Customer) session.getAttribute("customer");
 	  String id = customer.getId();
@@ -26,5 +27,5 @@
     		<input type="submit" value="삭제하기">
     		</form>
     </fieldset>
-  </BODY>
-</HTML>
+  </body>
+</html>

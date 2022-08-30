@@ -13,7 +13,7 @@
     <div id="login">
     <div id="login_form"><!--로그인 폼-->
      <form action="loginSystem.jsp">
-    <form>
+    	<form>
         <h3 class="login" style="letter-spacing:-1px;">CoCoMo</h3>
 
 		
@@ -24,16 +24,13 @@
         <p style="text-align: left; font-size:12px; color:#666">Username</p>
         <input type="text" name="id" placeholder="아이디를 입력" class="size">
         <!-- <input type="submit" value="확인"> -->
-        <p></p>
         </label>
-
         <label>
         <!-- <span>PW</span> -->
         <p style="text-align: left; font-size:12px; color:#666">Password </p>
         <input type="password" name="password" placeholder="비밀번호를 입력" class="size">
         <!-- <input type="submit" value="확인"> -->
-        </label>
-		
+        </label>		
         <p>
             <input type="submit" value="Sign in" class="btn">
         </p>
@@ -46,9 +43,5 @@
         <span><a href="join membership.jsp" >회원가입</a></span>
     </p>
     </div>
-    <div>
-    </div><!--con-->
-
-
 </body>
 </html>

@@ -31,7 +31,7 @@ public class ProductDao {
 				IndexDto indexDto = new IndexDto();
 						indexDto.setProductId(rs.getInt("p.num"));
 						indexDto.setProductCode(rs.getInt("p.productCode"));
-						indexDto.setSize(rs.getInt("p.size"));
+						indexDto.setSize(rs.getString("p.size"));
 						indexDto.setProductName(rs.getString("p.productName"));
 						indexDto.setPrice(rs.getLong("p.price"));
 						indexDto.setImgUrl_1(rs.getString("p.imgUrl_1"));
@@ -61,7 +61,7 @@ public class ProductDao {
 				IndexDto indexDto = new IndexDto();
 				indexDto.setProductId(rs.getInt("p.num"));
 				indexDto.setProductCode(rs.getInt("p.productCode"));
-				indexDto.setSize(rs.getInt("p.size"));
+				indexDto.setSize(rs.getString("p.size"));
 				indexDto.setProductName(rs.getString("p.productName"));
 				indexDto.setPrice(rs.getLong("p.price"));
 				indexDto.setImgUrl_1(rs.getString("p.imgUrl_1"));
@@ -97,7 +97,7 @@ public class ProductDao {
 						dto.setProdId(rs.getInt("p.num"));
 						dto.setProductCode(rs.getInt("p.productCode"));
 						dto.setProductName(rs.getString("p.productName"));
-						dto.setSize(rs.getInt("p.size"));
+						dto.setSize(rs.getString("p.size"));
 						dto.setImgUrl_1(rs.getString("p.imgUrl_1"));
 						dto.setPrice(rs.getLong("p.price"));
 						//dto.setDetail(rs.getString("p.detail"));
