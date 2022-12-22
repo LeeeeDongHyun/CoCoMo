@@ -59,37 +59,18 @@
         <h3>Our New Products</h3>
    <div id = "nav">
     <ul class="main">
-<li><a href="#">인기 상품</a>
-       <ul class="sub">
-    
-       <li><a href="#">상의</a></li>
-       <li><a href="#">하의</a></li>
-       <li><a href="#">모자</a></li>
-       <li><a href="#">신발</a></li>
-    </ul>
+<li>
+				    <c:when test="${pageContext.request.requestURI eq '/shop/Main2.jsp' }">
+						<button type="button"
+							onclick="location.href='/shop/';">
+							전체 상품</button>
+					</c:when>
 </li>
-<li><a href="#">상의</a>
-       <ul class="sub">
-       <li><a href="#">티셔츠</a></li>
-       <li><a href="#">가디건</a></li>
-       <li><a href="#">셔츠</a></li>
-       <li><a href="#">가디건</a></li>
-    </ul>
+<li><a href="#">옷</a>
 </li>
-<li><a href="#">하의</a>
-       <ul class="sub">
-       <li><a href="#">긴바지</a></li>
-       <li><a href="#">반바지</a></li>
-       <li><a href="#">츄리닝</a></li>
-    </ul>
+<li><a href="#">신발</a>
 </li>
-<li><a href="#">모자 와 신발</a>
-       <ul class="sub">
-       <li><a href="#">모자</a></li>
-       <li><a href="#">구두</a></li>
-       <li><a href="#">운동화</a></li>
-       <li><a href="#">단화</a></li>
-    </ul>
+<li><a href="#">기타</a>
 </li>
 </ul>
 </div>

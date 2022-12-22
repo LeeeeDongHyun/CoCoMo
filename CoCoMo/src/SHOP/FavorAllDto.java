@@ -1,16 +1,23 @@
 package SHOP;
 
-public class CheckoutProductDto {
+public class FavorAllDto {
 	private int num;
+	private int productId;
 	private String productName;
 	private String imgUrl_1;
 	private long price;
-	
+	private String size;
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 	public String getProductName() {
 		return productName;
@@ -30,5 +37,11 @@ public class CheckoutProductDto {
 	public void setPrice(long price) {
 		this.price = price;
 	}
-
+	public String getSize() {
+		return size;
+	}
+	public void setSize(String size) {
+		this.size = size;
+	}
+	
 }

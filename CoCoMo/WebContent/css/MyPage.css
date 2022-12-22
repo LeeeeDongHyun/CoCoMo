@@ -35,8 +35,8 @@
    }
 
 body{
-  
-  margin: ;
+  padding: 0;
+  margin: 0;
 }
 div{
   box-sizing: border-box;
@@ -54,21 +54,17 @@ div{
   left: 110%;
 }
 
-/* ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® */
+/* ³ì»ö ÅØ½ºÆ® */
 .green{
   color: #24855b;
 }
 
 .wrap{
-	padding:30px;
-	margin-top: 150px;
-	height: 150px;
   background-color: #F8F8F8;  
 }
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ³ì»ö¹è°æ */
 .greenContainer{  
-  margin-top: 150px;
-  padding:30px;
+  height: 132px;
   background-color: #0000;    
   
   display: flex;
@@ -85,7 +81,7 @@ div{
   margin-left: auto;
 }
 
-/* ï¿½Ü°ï¿½ï¿½ï¿½ï¿½ , ï¿½ï¿½Ç°ï¿½Ä±ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ */
+/* ´Ü°ñ»óÁ¡ , »óÇ°ÈÄ±â , Àû¸³±Ý ¹Ú½º */
 .summaryContainer{
   background-color: white;  
   display: flex;  
@@ -93,42 +89,42 @@ div{
   height: 90px;
   margin-bottom: 10px;
 }
-/* ï¿½Ü°ï¿½ï¿½ï¿½ï¿½ , ï¿½ï¿½Ç°ï¿½Ä±ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ´Ü°ñ»óÁ¡ , »óÇ°ÈÄ±â , Àû¸³±Ý */
 .summaryContainer .item{
   flex-grow: 1
 }
-/* ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
+/* ³ì»ö ¼ýÀÚ */
 .summaryContainer .number{
   font-size: 19px;
   font-weight: bold;
   color: #24855b;
 }
-/* ï¿½Ø½ï¿½Æ® */
+/* ÅØ½ºÆ® */
 .summaryContainer .item > div:nth-child(2){
   font-size: 13px;
 }
 
-/* ================== ï¿½Ö¹ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½È¸ ï¿½Ú½ï¿½ ï¿½ï¿½ï¿½ï¿½ ==================== */
+/* ================== ÁÖ¹®/¹è¼ÛÁ¶È¸ ¹Ú½º ½ÃÀÛ ==================== */
 .shippingStatusContainer{
   padding: 21px 16px;
   background-color: white;
   margin-bottom: 10px;
 }
 
-/* ï¿½Ö¹ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½È¸ Å¸ï¿½ï¿½Æ² */
+/* ÁÖ¹®/¹è¼ÛÁ¶È¸ Å¸ÀÌÆ² */
 .shippingStatusContainer .title{
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-/* ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½ [ï¿½Î¿ï¿½] */
+/* Àå¹Ù±¸´Ï °áÁ¦¿Ï·á ¹è¼ÛÁß ±¸¸ÅÈ®Á¤ [·Î¿ì] */
 .shippingStatusContainer .status{
   display: flex;
   justify-content: space-between;
   margin-bottom: 21px;
 }
-/* ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È®ï¿½ï¿½ [ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½]  */
+/* Àå¹Ù±¸´Ï °áÁ¦¿Ï·á ¹è¼ÛÁß ±¸¸ÅÈ®Á¤ [¾ÆÀÌÅÛ]  */
 .shippingStatusContainer .item{
   display: flex;
 }
@@ -153,7 +149,7 @@ div{
 }
 
 
-/*=================== ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ ~ ï¿½ï¿½ï¿½Ñ»ï¿½Ç° ï¿½ï¿½ï¿½ï¿½Æ® ==================*/
+/*=================== ÁÖ¹®¸ñ·Ï ~ ÂòÇÑ»óÇ° ¸®½ºÆ® ==================*/
 .listContainer{  
   padding: 0;
   background-color: #ffffff;
@@ -180,7 +176,7 @@ div{
 }
 
 
-/*=================== ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½Îºï¿½ ================*/
+/*=================== ³»Áö°©ÀÇ º¸À¯ Àû¸³±Ý µé¾î°¡´Â ºÎºÐ ================*/
 .listContainer .smallLight{
   font-size: 14px;
   color: #c2c2c2;  
@@ -197,7 +193,7 @@ div{
 
 
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½È³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* °øÁö»çÇ× ÀÌ¿ë¾È³» °í°´¼¾ÅÍ */
 .infoContainer{
   background-color: white; 
   display: flex;

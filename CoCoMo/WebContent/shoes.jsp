@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
+<%@ page import="SHOP.Product" %>
 <%@ page import="java.sql.*, SHOP.*, java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -106,11 +107,11 @@
 				</c:choose>
 
 </li>
-
 </ul>
 </div>
 
-	<div class="product-list">
+
+<div class="product-list">
 	<c:forEach var="product" items="${productList30}">
 	<div class="product">
 	<a  href="/CoCoMo/Product?cmd=detail&prodNo=${product.productId}">
@@ -125,6 +126,8 @@
 	</div>
 	<!-- End of main-prd -->
 	</div>
+
+	
 	<!-- End of Container -->
 
 	<div class="clearfix"></div>
@@ -140,5 +143,4 @@
             </a>
         </div>
 </body>
-</html>
 </html>

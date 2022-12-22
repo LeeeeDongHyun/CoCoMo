@@ -10,7 +10,6 @@
 <%
 String id = request.getParameter("id");
 String password = request.getParameter("password");
-
 SHOPDB.loadConnectshop();
 boolean result=SHOPDB.deleteId(id,password);
 if(result){

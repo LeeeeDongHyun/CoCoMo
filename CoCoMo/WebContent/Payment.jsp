@@ -119,10 +119,40 @@
          </c:otherwise>
          </c:choose>
          </div>
-         </form>
+        <!-- </form> -->
        
          <!-- 장바구니 버튼 끝 -->
-       
+         
+         <!-- 좋아요 버튼 시작 -->
+          <c:choose>
+          <c:when test="${sessionScope.customer ne null}">
+	<c:choose>
+               <c:when test="${isFavor eq true }">
+ 	<button type="button" class="cart__bigorderbtn left" onclick="rmvFavor(${sessionScope.customer.num}, ${prodDto.prodId})">
+                     <i>좋아요 취소</i>
+                  </button>
+                  
+               </c:when>
+               <c:otherwise>
+ 	<button type="button" class="cart__bigorderbtn left" onclick="addFavor(${sessionScope.customer.num}, ${prodDto.prodId})">
+                     <i>좋아요</i>
+                  </button>
+                 
+               </c:otherwise>
+	</c:choose>
+               </c:when>
+         
+         <c:otherwise>
+         <a>   <button type="button" class="cart__bigorderbtn left" onclick="needLogin()">
+               <i>좋아요</i>
+             
+            </button></a>
+            
+         </c:otherwise>
+	</c:choose>
+         
+          <!-- 좋아요 버튼 끝 -->
+       </form>
          <!-- 버튼 끝 -->
                </div>
                            
@@ -152,7 +182,6 @@
                          $("#addressInfo-box").hide();
                       }
                    };
-
                    function addCartMessage() {
                       Swal.fire({
                          title: '장바구니에 추가되었습니다.',
@@ -166,7 +195,6 @@
                          location.reload();
                       })
                    }
-
                    function rmvCartMessage() {
                       Swal.fire({
                          title: '장바구니에서 삭제되었습니다.',
@@ -180,13 +208,11 @@
                          location.reload();
                       })
                    }
-
                    function addCart(userId, prodId) {
                       var dto = {
                          userId: userId,
                          prodId: prodId
                       };
-
                       $.ajax({
                          type: "POST",
                          url: "/CoCoMo/cart?cmd=cartAdd",
@@ -199,13 +225,11 @@
                          }
                       })
                    };
-
                    function rmvCart(userId, prodId) {
                       var dto = {
                          userId: userId,
                          prodId: prodId
                       };
-
                       $.ajax({
                           type: "POST",
                           url: "/CoCoMo/cart?cmd=cartRmv",
@@ -218,7 +242,81 @@
                           }
                        })
                     };
+                    function addressInfoBox() {
+                		if (addressInfoOn == false) {
+                			addressInfoOn = true;
+                			$("#addressInfo-box").show();
+                		} else {
+                			addressInfoOn = false;
+                			$("#addressInfo-box").hide();
+                		}
+                	};
 
+                	function addFavMessage() {
+                		Swal.fire({
+                			html: '좋아요 목록에 추가되었습니다.',
+                			icon: 'success',
+                			timer: 2000,
+                			timerProgressbar: true,
+                			willClose: () => {
+                				clearInterval(timerInterval)
+                			}
+                		}).then((result) => {
+                			location.reload();
+                		})
+                	}
+
+                	function rmvFavMessage() {
+                		Swal.fire({
+                			html: '좋아요 목록에서 해제되었습니다.',
+                			icon: 'success',
+                			timer: 2000,
+                			timerProgressbar: true,
+                			willClose: () => {
+                				clearInterval(timerInterval)
+                			}
+                		}).then((result) => {
+                			location.reload();
+                		})
+                	}
+
+                	function addFavor(userId, prodId) {
+                		var dto = {
+                			userId: userId,
+                			prodId: prodId
+                		};
+
+                		$.ajax({
+                			type: "POST",
+                			url: "/CoCoMo/favor?cmd=favorAdd",
+                			data: JSON.stringify(dto),
+                			contentType: "application/json; charset=utf-8",
+                			dataType: "text"
+                		}).done(function(result){
+                			if (result === '200') {
+                				addFavMessage();
+                			}
+                		})
+                	};
+
+                	function rmvFavor(userId, prodId) {
+                		var dto = {
+                			userId: userId,
+                			prodId: prodId
+                		};
+
+                		$.ajax({
+                			type: "POST",
+                			url: "/CoCoMo/favor?cmd=favorRmv",
+                			data: JSON.stringify(dto),
+                			contentType: "application/json; charset=utf-8",
+                			dataType: "text"
+                		}).done(function(result){
+                			if (result === '200') {
+                				rmvFavMessage();
+                			}
+                		})
+                	};
                     function needLogin() {
                        Swal.fire({
                           title: '로그인이 필요한 기능입니다.',
@@ -238,80 +336,9 @@
                        })
                     };
                     </script>
-   <%-- <---------------------------------------------------------------------->    --%>   
-   <!--  <div class="wrap">
-      <div class="product-img"></div>
-      <div class="product-desc">
-        <h2>
-      네프 오버핏 포켓 반팔 티셔츠
-                            <sapn class="price">39,800원</sapn><span
-                                style="text-decoration: line-through; color: lightgray;">41,800</span>
-        </h2>
-        <p>가슴 부분 포켓 디테일</p>
-      </div>
-      <div class="item-order">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">주문자이름</span>
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">사이즈/색상</label>
-          </div>
-          <select class="custom-select" id="inputGroupSelect01">
-            <option selected>-- 사이즈를 선택하세요 --</option>
-            <option value="1">S(90~95)</option>
-            <option value="2">L(95~100)</option>
-            <option value="3">XL(100~105)</option>
-          </select>
-        </div>
-        <div>
-        <select class="custom-select" id="inputGroupSelect02">
-            <option selected>-- 색상을 선택하세요 --</option>
-            <option value="1">Black</option>
-            <option value="2">White</option>
-          </select>
-          </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">주소</span>
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">전화번호</span>
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"
-          />
-        </div>
-                <div class="cart__mainbtns">
-            <a href="Main.html">
-                <button class="cart__bigorderbtn left">쇼핑 계속하기</button></a>
-            <a href="Cart.html">
-                <button class="cart__bigorderbtn middle">장바구니로 이동하기</button></a>
-        <button class="cart__bigorderbtn right" onclick="order()" class="btn btn-primary btn-order">
-          주문하기
-        </button> -->
-<!--       </div>
-    </div> -->
-    <div class="clearfix"></div>
+	<%-- <---------------------------------------------------------------------->    --%>	
+   
+ <div class="clearfix"></div>
        <div class="footer">
             <a href="http://faceboo.com">
                 <img src="https://bakey-api.codeit.kr/files/629/images/facebook.png" height="20">
@@ -323,7 +350,6 @@
                 <img src="https://bakey-api.codeit.kr/files/629/images/twitter.png" height="20">
             </a>
         </div>
-
     </body>
     </html>
 

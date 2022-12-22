@@ -3,7 +3,7 @@ package SHOP;
 import java.util.*;
 
 public class Customer {
-	int num;
+	int num;//번호
     String id;// 아이디
     String name; //이름
     String password; //비밀번호

@@ -1,17 +1,16 @@
 package SHOP;
 
 public class CheckoutRespDto {
-	private String id;
+	private int num;
 	private String name;
 	private String address;
 	private String number;
-	private String Email;
-	
-	public String getId() {
-		return id;
+	private String email;
+	public int getNum() {
+		return num;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setNum(int num) {
+		this.num = num;
 	}
 	public String getName() {
 		return name;
@@ -32,10 +31,13 @@ public class CheckoutRespDto {
 		this.number = number;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
+	
+
+	
 	
 }

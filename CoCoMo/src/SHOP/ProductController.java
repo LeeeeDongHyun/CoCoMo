@@ -55,9 +55,9 @@ public ProductController() {
 	                  if (customer != null) {
 	                     int userId = customer.getNum();
 	                     
-	               //      FavorService favorService = new FavorService();
-	               //      boolean isFavor = favorService.Âò¿©ºÎ(id, prodNo);
-	               //      request.setAttribute("isFavor", isFavor);
+	                     FavorService favorService = new FavorService();
+	                     boolean isFavor = favorService.isF(userId, prodNo);
+	                     request.setAttribute("isFavor", isFavor);
 	                     
 	                     CartService cartService = new CartService();
 	                     boolean isCart = cartService.isC(userId, prodNo);
@@ -66,6 +66,23 @@ public ProductController() {
 	         dis = request.getRequestDispatcher("/Payment.jsp");
 	         dis.forward(request, response);
 
+	} else if(cmd.equals("other")) {
+		List<IndexDto> productList30 = productService.findT("±âÅ¸");
+		request.setAttribute("productList30", productList30);
+		dis = request.getRequestDispatcher("/other.jsp");
+		dis.forward(request, response);
+	}
+	else if(cmd.equals("clothes")) {
+		List<IndexDto> productList30 = productService.findT("¿Ê");
+		request.setAttribute("productList30", productList30);
+		dis = request.getRequestDispatcher("/clothes.jsp");
+		dis.forward(request, response);
+	}
+	else if(cmd.equals("shoes")) {
+		List<IndexDto> productList30 = productService.findT("½Å¹ß");
+		request.setAttribute("productList30", productList30);
+		dis = request.getRequestDispatcher("/shoes.jsp");
+		dis.forward(request, response);
 	}
 
 	   }

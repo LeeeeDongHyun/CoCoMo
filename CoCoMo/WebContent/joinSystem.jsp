@@ -10,7 +10,6 @@ import="java.sql.*, SHOP.*, util.*, java.util.regex.Pattern, java.util.regex.Mat
 	<jsp:useBean class="SHOP.Customer" id="customer" scope="request" />
 	<jsp:setProperty name="customer" property="*" />
     <% 
-
        String password = request.getParameter("password");
        String password2 = request.getParameter("password2");
        // 재입력 비밀번호 다를시
@@ -38,7 +37,6 @@ import="java.sql.*, SHOP.*, util.*, java.util.regex.Pattern, java.util.regex.Mat
       out.print("<script>location='join membership.jsp'</script>");
       return;
        }
-
       
       // 비밀번호 암호화
          SHA256 sha256 = new SHA256();

@@ -25,10 +25,8 @@
  	<% 
  	       String attributeForButton = (String) request.getAttribute("attributeForButton");
  	       String pageForButtonCliked = (String) request.getAttribute("pageForButtonCliked");
-
 System.out.println("   >> attributeForButton = " + attributeForButton + "\n");	
 System.out.println("   >> pageForButtonCliked = " + pageForButtonCliked + "\n");	
-
 			rs.last();  // rs 커서를 끝으로 이동하여 투플 개수 확인
 			int cntTuples = rs.getRow();  // 투플 개수를 구함
 			rs.beforeFirst();  // rs 커서를 처음으로 이동
@@ -64,30 +62,24 @@ System.out.println("   >> clms : " + columns[i] + " " + columnTypes[i]+ "\n");
 			    out.println("<table align=center valign=top border=1 cellpadding=8 cellspacing=0 bordercolor=#999999>");
 			
 				rs.next(); // ResultSet의 커서 이동
-
 				for(int i=0; i<columns.length; i++){
 					out.println("<tr><td bgcolor=#DDDDDD>" + columns[i]  + "</td >" + "<td > &nbsp;" +  rs.getObject(columns[i])  + "&nbsp;</td></tr>");	
 				}
 				
 				out.println("</table>");
-
 				return;
 			}
 	    */
 			
 	        out.println("<table align=center valign=top border=1 cellpadding=8 cellspacing=0 bordercolor=#999999>");
 			out.println("<tr bgcolor=#6c7ae0 class=\"ftable\" >" );
-
 			for(int i=0; i<columns.length; i++){
 				out.println("<th>" + columns[i]  + "</th>" );	
 			}
 			out.println("</tr>" );
-
 			while(rs.next()) {
 				out.println("<tr>" );
-
 				for(int i=0; i<columns.length; i++){
-
 					Object obj= rs.getObject(columns[i]);
  // System.out.println("   >> col value : " + (obj) + "\n");
 					if (obj == null)    // null 객체이면 null을 출력

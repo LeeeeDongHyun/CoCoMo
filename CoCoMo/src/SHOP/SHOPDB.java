@@ -40,7 +40,7 @@ public class SHOPDB {
       database = "shop";
    }
     
- // DEBUG           true ̸  debug                 µ 
+ // DEBUG
     static boolean DEBUG = false;
     
     static void outputForDebug(String msg) {
@@ -95,13 +95,13 @@ public class SHOPDB {
     		e.printStackTrace();
     	}
     }
- // JDBC     ̹   ε         ,           ̸  true,    и  false   ȯ ϴ   ޼ҵ 
+ // JDBC
     public static boolean loadConnectshop()  {
        return loadConnect("SHOP");
     }
     
     
- //     ̺   ε          ϴ   ޼ҵ 
+ //연결
     public static boolean loadConnect(String database)  {
        try {
           //     ̹   ε 
@@ -124,7 +124,7 @@ public class SHOPDB {
     
        return false;
     }
-    //  ־    SQL           ϴ   ޼ҵ 
+    // SQL
     public static void executeAnyQuery(String sql) {
        try {
           Statement stmt = con.createStatement();
@@ -145,7 +145,7 @@ public class SHOPDB {
        }
        return rs;
     }
- // Customer   ü         ̺  customer      ÷       ϴ   ޼ҵ 
+ // Customer에 정보 넣기
     public static boolean insertCustomer(Customer customer) {
       try {
          customer.output();
@@ -167,8 +167,8 @@ public class SHOPDB {
       }
       
     }
- // ȸ           α    
-    //    ̵  ߺ    Ȯ   ϴ   ޼ҵ   ߺ           true
+ //
+    // 확인
     public static boolean idDuplication(String id) {
 
         String sql = "select id from Customer where id =? ";
@@ -195,7 +195,7 @@ public class SHOPDB {
            //if (rs.getRow() ==  0)
            //   return null;
            int num = rs.getInt("num");
-           String id = rs.getString("id");  // ID   Ʈ    Ʈ          
+           String id = rs.getString("id");  // ID 
            String name = rs.getString("name");
            String password = rs.getString("password");
            String address = rs.getString("address");
@@ -203,7 +203,7 @@ public class SHOPDB {
            String number = rs.getString("number");
            
            cu.setNum(num);
-           cu.setId(id);   // ResultSet     Ʈ    Ʈ      get Ͽ   ʵ                
+           cu.setId(id);   // ResultSet          
            cu.setName(name);
            cu.setPassword(password);
            cu.setAddress(address);
@@ -216,7 +216,7 @@ public class SHOPDB {
 
         return cu;
      }
-  //   ̵           α     Һ      ü   ȯ(  ġ ϴ  ȸ             null     ȯ)
+  //   로그인
     public static Customer loginProcess(String id,  String password) {
        try {
          // SQL    ǹ         Ѵ .

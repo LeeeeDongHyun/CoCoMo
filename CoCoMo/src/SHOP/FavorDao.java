@@ -7,54 +7,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 import SHOP.SHOPDB;
-import SHOP.CartDto;
-import SHOP.CartAllDto;
+import SHOP.FavorDto;
+import SHOP.FavorAllDto;
 
-public class CartDao {
-	/*public List<Integer> findFavorByUserId(int userId) {
-		Connection conn = SHOPDB.getConnection();
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "SELECT productId FROM favorite WHERE userId = ?";
-		List<Integer> result = new ArrayList<>();
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, userId);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				result.add(rs.getInt("productId"));
-			}
-			return result;
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			SHOPDB.close(conn, pstmt, rs);
-		}
-		return null;
-	}*/// 찜관련(보류중)
+public class FavorDao {
 	
-	public List<CartAllDto> findByUserId(int userId) {
+	public List<FavorAllDto> findByUserId(int userId) {
 		Connection con = SHOPDB.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		StringBuffer sb = new StringBuffer();
-		sb.append("SELECT c.num, c.productId, p.productName, p.price, p.imgUrl_1 ");
-		sb.append("FROM cart c INNER JOIN product p ON c.productId = p.num  WHERE userId = ?" );
+		sb.append("SELECT f.num, f.productId, p.productName, p.price, p.imgUrl_1, p.size ");
+		sb.append("FROM favor f INNER JOIN product p ON f.productId = p.num  WHERE userId = ?" );
 		
 		String sql = sb.toString();
-		List<CartAllDto> result = new ArrayList<>();
+		List<FavorAllDto> result = new ArrayList<>();
 		
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, userId);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				CartAllDto dto = new CartAllDto();
-						dto.setNum(rs.getInt("c.num"));
-						dto.setProductId(rs.getInt("c.productId"));
+				FavorAllDto dto = new FavorAllDto();
+						dto.setNum(rs.getInt("f.num"));
+						dto.setProductId(rs.getInt("f.productId"));
 						dto.setProductName(rs.getString("p.productName"));
 						dto.setPrice(rs.getLong("p.price"));
+						dto.setSize(rs.getString("size"));
 						dto.setImgUrl_1(rs.getString("p.imgUrl_1"));
 
 				result.add(dto);
@@ -67,12 +46,12 @@ public class CartDao {
 		}
 		return null;
 	}
-	
-	public boolean isCart(int userId, int prodNo) {
+
+	public boolean isFavor(int userId, int prodNo) {
 		Connection con = SHOPDB.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM cart WHERE userId = ? AND productId = ?";
+		String sql = "SELECT * FROM favor WHERE userId = ? AND productId = ?";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -90,15 +69,15 @@ public class CartDao {
 		return false;
 	}
 	
-	public int addCart(CartDto cartDto) {
+	public int addFavor(FavorDto favorDto) {
 		Connection con = SHOPDB.getConnection();
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO cart(userId, productId) VALUES (?, ?)";
+		String sql = "INSERT INTO favor(userId, productId) VALUES (?, ?)";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, cartDto.getUserId());
-			pstmt.setInt(2, cartDto.getProdId());
+			pstmt.setInt(1, favorDto.getUserId());
+			pstmt.setInt(2, favorDto.getProdId());
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -108,15 +87,15 @@ public class CartDao {
 		return -1;
 	}
 	
-	public int rmvCart(CartDto cartDto) {
+	public int rmvFavor(FavorDto favorDto) {
 		Connection conn = SHOPDB.getConnection();
 		PreparedStatement pstmt = null;
-		String sql = "DELETE FROM cart WHERE userId = ? AND productId = ?";
+		String sql = "DELETE FROM favor WHERE userId = ? AND productId = ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, cartDto.getUserId());
-			pstmt.setInt(2, cartDto.getProdId());
+			pstmt.setInt(1, favorDto.getUserId());
+			pstmt.setInt(2, favorDto.getProdId());
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

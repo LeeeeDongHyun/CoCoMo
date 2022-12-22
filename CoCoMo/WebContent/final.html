@@ -1,0 +1,36 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+  <script>
+    $(document).ready(function(){
+        $(".sub").css({display:"none"});
+        $(".main > li").click(function(){
+            $(".sub").each(function(){
+                if($(this).css("display") == "block") {
+                    $(this).css({display:"none"});
+                }
+            });
+            $(this).find(".sub").fadeIn(500);
+        });
+    });
+  </script>
+
+<title>CoCoMo</title>
+<body>
+<p style ="width: 420px;
+height: 200px;
+padding-top: 40px;
+display: block;
+margin: auto;
+background-color: Black;
+color: white;
+border: none;
+text-align: center;
+">
+
+
+주문완료</p>
+
+</body></head></html>

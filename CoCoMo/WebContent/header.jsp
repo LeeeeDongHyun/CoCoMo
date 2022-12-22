@@ -61,6 +61,7 @@
 						</c:if>
 				<ul><li><a href="MyPage.jsp" class="header-sub-menu">마이페이지</a></li> 
 						<li><a href="<%=request.getContextPath()%>/cart?cmd=cartList" class="header-sub-menu">장바구니</a></li>
+						<li><a href="<%=request.getContextPath()%>/favor?cmd=favorList" class="header-sub-menu">좋아요</a></li>
 						<li><a href="logoutSystem.jsp" class="header-sub-menu">로그아웃</a></li>
 					 	<li><div class="search-box"><input type=  "text" class="search-txt"name=""placeholder="search">
                      <a class="search-btn" href="#">

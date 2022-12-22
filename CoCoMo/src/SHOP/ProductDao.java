@@ -118,13 +118,13 @@ public class ProductDao {
 		
 		try {
 			for (int productCode : cartList) {
-				String sql = "SELECT p.id, p.productName, c.name, p.price, p.imgUrl_1 FROM product p INNER JOIN company c ON p.companyId = c.id WHERE p.id = ?";
+				String sql = "SELECT p.num, p.productName, p.price, p.imgUrl_1 FROM product p WHERE p.num = ?";
 				prStmt = con.prepareStatement(sql);
 				prStmt.setInt(1, productCode);
 				rs = prStmt.executeQuery();
 				if (rs.next()) {
 					CheckoutProductDto dto = new CheckoutProductDto();
-							dto.setId(rs.getString("p.id"));
+							dto.setNum(rs.getInt("p.num"));
 							dto.setProductName(rs.getString("p.productName"));
 							dto.setPrice(rs.getLong("p.price"));
 							dto.setImgUrl_1(rs.getString("p.imgUrl_1"));
@@ -144,7 +144,7 @@ public class ProductDao {
 		Connection con = SHOPDB.getConnection();
 		PreparedStatement prStmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT p.id, p.productName, c.name, p.price, p.imgUrl_1 FROM product p  WHERE p.id = ?";
+		String sql = "SELECT p.num, p.productName, p.price, p.imgUrl_1 FROM product p  WHERE p.id = ?";
 		
 		try {
 			prStmt = con.prepareStatement(sql);
@@ -152,7 +152,7 @@ public class ProductDao {
 			rs = prStmt.executeQuery();
 			if (rs.next()) {
 				CheckoutProductDto dto = new CheckoutProductDto();
-						dto.setId(rs.getString("p.id"));
+						dto.setNum(rs.getInt("p.num"));
 						dto.setProductName(rs.getString("p.productName"));
 						dto.setPrice(rs.getLong("p.price"));
 						dto.setImgUrl_1(rs.getString("p.imgUrl_1"));
@@ -165,4 +165,39 @@ public class ProductDao {
 		}
 		return null;
 	}
+	
+	public List<IndexDto> findByType(String type) {
+		Connection conn = SHOPDB.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StringBuffer sb = new StringBuffer(); 
+		sb.append("SELECT p.num, p.productName, p.price, ");
+		sb.append("p.imgUrl_1 FROM product p ");
+		sb.append("WHERE p.type = ?");
+		String sql = sb.toString();
+		
+		List<IndexDto> result = new ArrayList<>();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, type);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				IndexDto dto =new IndexDto();
+						dto.setProductId(rs.getInt("p.num"));
+						dto.setProductName(rs.getString("p.productName"));
+						dto.setPrice(rs.getLong("p.price"));
+						dto.setImgUrl_1(rs.getString("p.imgUrl_1"));
+
+				result.add(dto);
+			}
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			SHOPDB.close(conn, pstmt, rs);
+		}
+		return null;
+	}
+	
 }

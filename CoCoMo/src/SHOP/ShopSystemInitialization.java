@@ -23,7 +23,6 @@ public class ShopSystemInitialization {
              " primary key(num) " +
                 " );",
                 
-                
                     /***********************************************
                            TABLE NAME   : shop.myOrder
                       DATABASE     : shop
@@ -74,24 +73,24 @@ public class ShopSystemInitialization {
                 "imgUrl_1 varchar(100) not null," +
                 "productName varchar(20) not null, " +
                 "price long not null, " +
+                "type varchar(20) not null, " +
                 "primary key(num) " +
                 " );",
-                " insert into Shop.Product values(1,1, 'M', '0.jpg', '링클 무지 티셔츠', 15000); ",
-                " insert into Shop.Product values(null,2, '', '1.jpg', '입셍로랑 장지갑', 500000); ",
-                " insert into Shop.Product values(null,3, '', '2.jpg', '구찌 카드지갑', 1500000); ",
-                " insert into Shop.Product values(null,4, 'L', '3.jpg', '정장 슬렉스', 55900); ",
-                " insert into Shop.Product values(null,5, 'XL', '4.jpg', '여름 필수템 린넨바지', 35400); ",
-                " insert into Shop.Product values(null,6, 'L', '5.jpg', '세미 오버핏 그레이진', 38500); ",
-                " insert into Shop.Product values(null,7, 'XL', '6.jpg', '벌룬핏 데님자켓', 45900); ",
-                " insert into Shop.Product values(null,8, 'FREE', '7.jpg', '슬림핏 그레이진', 35500); ",
-                " insert into Shop.Product values(null,9, 'XL', '8.jpg', '벌룬핏 멜론 후드티', 25500); ",
-                " insert into Shop.Product values(null,10, 'XL', '9.jpg', '블루 박스티', 23500); ",
-                " insert into Shop.Product values(null,11, '265', '10.jpg', '나이키 덩크 로우 코스트', 354000); ",
-                " insert into Shop.Product values(null,12, '290', '11.jpg', '나이키 덩크 로우 레트로 블랙', 178000); ",
-                " insert into Shop.Product values(null,13, '', '12.jpg', '크롬하츠 포에버링', 200000); ",
-                " insert into Shop.Product values(null,14, '', '13.jpg', '화이트 메신져백', 38500); ",
-                " insert into Shop.Product values(null,15, '', '14.jpg', '유니클로 백팩', 48500); ",
-                
+                " insert into Shop.Product values(1,1, 'M', '0.jpg', '링클 무지 티셔츠', 15000, '옷'); ",
+                " insert into Shop.Product values(null,2, '', '1.jpg', '입셍로랑 장지갑', 500000, '기타'); ",
+                " insert into Shop.Product values(null,3, '', '2.jpg', '구찌 카드지갑', 1500000, '기타'); ",
+                " insert into Shop.Product values(null,4, 'L', '3.jpg', '정장 슬렉스', 55900, '옷'); ",
+                " insert into Shop.Product values(null,5, 'XL', '4.jpg', '여름 필수템 린넨바지', 35400, '옷'); ",
+                " insert into Shop.Product values(null,6, 'L', '5.jpg', '세미 오버핏 그레이진', 38500, '옷'); ",
+                " insert into Shop.Product values(null,7, 'XL', '6.jpg', '벌룬핏 데님자켓', 45900, '옷'); ",
+                " insert into Shop.Product values(null,8, 'FREE', '7.jpg', '슬림핏 그레이진', 35500, '옷'); ",
+                " insert into Shop.Product values(null,9, 'XL', '8.jpg', '벌룬핏 멜론 후드티', 25500, '옷'); ",
+                " insert into Shop.Product values(null,10, 'XL', '9.jpg', '블루 박스티', 23500, '옷'); ",
+                " insert into Shop.Product values(null,11, '265', '10.jpg', '나이키 덩크 로우 코스트', 354000, '신발'); ",
+                " insert into Shop.Product values(null,12, '290', '11.jpg', '나이키 덩크 로우 레트로 블랙', 178000, '신발'); ",
+                " insert into Shop.Product values(null,13, '', '12.jpg', '크롬하츠 포에버링', 200000, '기타'); ",
+                " insert into Shop.Product values(null,14, '', '13.jpg', '화이트 메신져백', 38500, '기타'); ",
+                " insert into Shop.Product values(null,15, '', '14.jpg', '유니클로 백팩', 48500, '기타'); ",
                     /***********************************************
                     TABLE NAME   : shop.Product
                      DATABASE     : shop
@@ -108,8 +107,29 @@ public class ShopSystemInitialization {
               "primary key(num) " +
             //    "FOREIGN KEY (ID) REFERENCES Customer(ID), " +
             //    "FOREIGN KEY (productCode) REFERENCES Product(productCode) " +
-                " );",}; 
+                " );",
                 
+                /***********************************************
+					TABLE NAME   : shop.Favor
+					DATABASE     : shop
+					 **********************************************/
+    
+			"drop table if exists shop.Favor; " ,
+				"create table Favor( " +
+				"num int auto_increment, " +
+					//  "basketNo int not null, " +
+					"userId int not null, " +
+					"productId int not null, " +
+					//   "totalPrice int not null, " +
+					//  "EA int not null, " +
+					"primary key(num) " +
+				//    "FOREIGN KEY (ID) REFERENCES Customer(ID), " +
+				//    "FOREIGN KEY (productCode) REFERENCES Product(productCode) " +
+					" );",}; 
+                
+      
+      
+      
                     /***********************************************
                     TABLE NAME   : shop.Delivery
                      DATABASE     : shop

@@ -34,9 +34,9 @@ private ProductDao productDao;
 	//	return productDao.findByKeyword(keyword);
 //	}
 	
-//	public List<IndexDto> 상품회사코드찾기(int compNo) {
-//		return productDao.findByCompNo(compNo);
-//	}
+	public List<IndexDto> findT(String type) {
+		return productDao.findByType(type);
+	}
 	
 //	public List<HeaderBrandDto> 회사명리스트() {
 //		return productDao.getAllCompName();
